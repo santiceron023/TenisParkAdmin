@@ -1,4 +1,4 @@
-package com.ceiba.infraestructura.repositorio.entity;
+package com.ceiba.AdminTenisPark.infraestructura.repositorio.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

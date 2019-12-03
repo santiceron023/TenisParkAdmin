@@ -1,4 +1,4 @@
-package com.ceiba.infraestructura.repositorio.entity;
+package com.ceiba.AdminTenisPark.infraestructura.repositorio.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,16 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "cancha")
-public class Cancha {
-
+@Table(name = "tarifa")
+public class Tarifa {
+	
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
-	private Long codigo;
+	private Long id;
 	
 	@Column(name = "Administrador", nullable = false, length = 100)
 	private String administrador;
 	
-	@Column(name = "Telefono", nullable = false, length = 20)
+	@Column(name = "Telefono", nullable = false, length = 100)
 	private String telefono;
+
 }
