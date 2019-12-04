@@ -52,8 +52,8 @@ pipeline {
    stage('Compile & Unit Tests') {
     steps {
      echo "------------>Unit Tests<------------"
-     sh 'gradle --b ./AdminTenisPark/build.gradle clean compileJava' 
-     sh 'gradle --b ./AdminTenisPark/build.gradle test'
+     sh 'gradle --b ./AlquilerVehiculos/build.gradle test'
+	  sh 'gradle --b ./AlquilerVehiculos/build.gradle jacocoTestReport'
     }
    }
 
@@ -72,6 +72,7 @@ pipeline {
   stage('Build') {
    steps {
     echo "------------>Build<------------"
+     sh 'gradle --b ./AdminTenisPark/build.gradle clean'
     sh 'gradle --b ./AdminTenisPark/build.gradle build -x test'
    }
   }

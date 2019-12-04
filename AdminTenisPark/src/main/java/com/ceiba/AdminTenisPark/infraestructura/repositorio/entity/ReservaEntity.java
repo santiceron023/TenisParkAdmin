@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 @Entity
 @Table(name="reserva")
-public class Reserva {
+public class ReservaEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

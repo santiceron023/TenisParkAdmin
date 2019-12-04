@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/tarifa")
-public class PrecioController {
+public class ControladorTarifa {
 	
 //	private final ManejadorCrearPrecio  manejadorCrearPrecio;
 //	
-//	public ControladorCliente(ManejadorCrearCliente manejadorCrearCliente) {
+//	public ManejadorCrearPrecio(ManejadorCrearCliente manejadorCrearCliente) {
 //		this.manejadorCrearCliente = manejadorCrearCliente;
 //	}
 //	
