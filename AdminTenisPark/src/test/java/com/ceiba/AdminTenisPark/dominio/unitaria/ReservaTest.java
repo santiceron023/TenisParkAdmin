@@ -18,9 +18,8 @@ public class ReservaTest {
 
 	@Test
 	public void crearReservaest() {
-
 		// arrange
-		/*ReservaTestDataBuilder productoTestDataBuilder = new ReservaTestDataBuilder().
+		ReservaTestDataBuilder productoTestDataBuilder = new ReservaTestDataBuilder().
 				conFechaFin(FECHA_FIN).
 				conFechaInicio(FECHA_INICIO).
 				conNumeroDeCancha(NUMERO_CANCHA);
@@ -31,8 +30,8 @@ public class ReservaTest {
 		// assert
 		Assertions.assertEquals(NUMERO_CANCHA, producto.getNumeroCancha());
 		Assertions.assertEquals(FECHA_FIN, producto.getFechaFin());
-		Assertions.assertEquals(FECHA_INICIO, producto.getFechaInicio());*/
-		Assertions.assertFalse(false);
+		Assertions.assertEquals(FECHA_INICIO, producto.getFechaInicio());
+
 	}
 
 }
