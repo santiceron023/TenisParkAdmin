@@ -8,6 +8,10 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 
+/**
+ * @author santiago.ceron
+ *
+ */
 @Entity
 @Table(name="reserva")
 public class ReservaEntity {
@@ -16,13 +20,13 @@ public class ReservaEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-//	@ManyToOne
-//	@JoinColumn(name = "id_tarifa",nullable= false, foreignKey = @ForeignKey(name = "reserva_tarifa") )
-//	private Tarifa tarifa;
-//
-//	@ManyToOne
-//	@JoinColumn(name = "id_usuario",nullable= false, foreignKey = @ForeignKey(name = "reserva_usuario") )
-//	private Usuario usuario;
+	@ManyToOne
+	@JoinColumn(name = "id_tarifa",nullable= false, foreignKey = @ForeignKey(name = "reserva_tarifa") )
+	private TarifaEntity tarifa;
+
+	@ManyToOne
+	@JoinColumn(name = "id_usuario",nullable= false, foreignKey = @ForeignKey(name = "reserva_usuario") )
+	private Usuario usuario;
 
 	@ManyToOne
 	@JoinColumn(name = "id_cancha",nullable= false, foreignKey = @ForeignKey(name = "reserva_cancha") )
@@ -51,6 +55,13 @@ public class ReservaEntity {
 	public LocalDateTime getFechaFin() {
 		return fechaFin;
 	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	public void setFechaFin(LocalDateTime fechaFin) {
 		this.fechaFin = fechaFin;
@@ -63,5 +74,30 @@ public class ReservaEntity {
 	public void setNumeroUsuarios(Integer numeroUsuarios) {
 		this.numeroUsuarios = numeroUsuarios;
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public TarifaEntity getTarifa() {
+		return tarifa;
+	}
+
+	public void setTarifa(TarifaEntity tarifa) {
+		this.tarifa = tarifa;
+	}
+
+	public Cancha getCancha() {
+		return cancha;
+	}
+
+	public void setCancha(Cancha cancha) {
+		this.cancha = cancha;
+	}
+	
 	
 }

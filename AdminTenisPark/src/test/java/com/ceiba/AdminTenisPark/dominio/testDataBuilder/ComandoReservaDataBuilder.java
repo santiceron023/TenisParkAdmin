@@ -3,7 +3,7 @@ package com.ceiba.AdminTenisPark.dominio.testDataBuilder;
 import java.time.LocalDateTime;
 import java.time.Month;
 
-import com.ceiba.AdminTenisPark.aplicacion.comando.ComandoReserva;
+import com.ceiba.AdminTenisPark.aplicacion.comando.ReservaComando;
 
 public class ComandoReservaDataBuilder {
 	
@@ -22,8 +22,8 @@ public class ComandoReservaDataBuilder {
 		this.fechaFin = FECHA_FIN;
 	}
 	
-	public ComandoReserva build() {
-		return new ComandoReserva(this.numeroCancha, this.fechaInicio, this.fechaFin);
+	public ReservaComando build() {
+		return new ReservaComando(this.numeroCancha, this.fechaInicio, this.fechaFin);
 	}
 	
 	public ComandoReservaDataBuilder conFechaInicio(LocalDateTime fechaInicio) {

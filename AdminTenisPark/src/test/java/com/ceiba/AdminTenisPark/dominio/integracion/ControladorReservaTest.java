@@ -18,10 +18,10 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.ceiba.AdminTenisPark.AdminTenisParkApplication;
-import com.ceiba.AdminTenisPark.aplicacion.comando.ComandoReserva;
+import com.ceiba.AdminTenisPark.aplicacion.comando.ReservaComando;
 import com.ceiba.AdminTenisPark.dominio.testDataBuilder.ComandoReservaDataBuilder;
 import com.ceiba.AdminTenisPark.dominio.testDataBuilder.ReservaTestDataBuilder;
-import com.ceiba.AdminTenisPark.infraestructura.repositorio.adapter.RepositorioReservaPosgress;
+import com.ceiba.AdminTenisPark.infraestructura.repositorio.adapter.ReservaRepositorioPosgres;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
@@ -40,7 +40,7 @@ public class ControladorReservaTest {
 	private MockMvc mockMvc;
 
 	@Autowired
-	private RepositorioReservaPosgress respositorioReservaPosgress;
+	private ReservaRepositorioPosgres respositorioReservaPosgress;
 
 	@Before
 	public void setup() throws Exception {
