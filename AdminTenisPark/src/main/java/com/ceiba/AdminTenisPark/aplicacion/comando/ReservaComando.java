@@ -9,31 +9,72 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 public class ReservaComando {
 
-	private Integer numeroCancha;
-	
 	@JsonSerialize(using = ToStringSerializer.class)
 	private LocalDateTime fechaInicio;
 	@JsonSerialize(using = ToStringSerializer.class)
 	private LocalDateTime fechaFin;
-	
-	
-	
-	public ReservaComando() {
-		super();
-	}
+	private Integer id;
+	private Integer tarifa;
+	private Integer usuario;
+	private Integer cancha;
+	private Integer numeroUsuarios;
 
-	public ReservaComando(Integer numeroCancha, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-		this.numeroCancha = numeroCancha;
+
+
+	public ReservaComando() {
+	}
+	
+	public ReservaComando(LocalDateTime fechaInicio, LocalDateTime fechaFin, Integer id, Integer tarifa,
+			Integer usuario, Integer cancha, Integer numeroUsuarios) {
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
+		this.id = id;
+		this.tarifa = tarifa;
+		this.usuario = usuario;
+		this.cancha = cancha;
+		this.numeroUsuarios = numeroUsuarios;
 	}
-	
-	public Integer getNumeroCancha() {
-		return numeroCancha;
+
+	public Integer getId() {
+		return id;
 	}
-	public void setNumeroCancha(Integer numeroCancha) {
-		this.numeroCancha = numeroCancha;
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
+
+	public Integer getTarifa() {
+		return tarifa;
+	}
+
+	public void setTarifa(Integer tarifa) {
+		this.tarifa = tarifa;
+	}
+
+	public Integer getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Integer usuario) {
+		this.usuario = usuario;
+	}
+
+	public Integer getCancha() {
+		return cancha;
+	}
+
+	public void setCancha(Integer cancha) {
+		this.cancha = cancha;
+	}
+
+	public Integer getNumeroUsuarios() {
+		return numeroUsuarios;
+	}
+
+	public void setNumeroUsuarios(Integer numeroUsuarios) {
+		this.numeroUsuarios = numeroUsuarios;
+	}
+
 	public LocalDateTime getFechaInicio() {
 		return fechaInicio;
 	}
@@ -46,8 +87,5 @@ public class ReservaComando {
 	public void setFechaFin(LocalDateTime fechaFin) {
 		this.fechaFin = fechaFin;
 	}
-	
-	
-
 
 }

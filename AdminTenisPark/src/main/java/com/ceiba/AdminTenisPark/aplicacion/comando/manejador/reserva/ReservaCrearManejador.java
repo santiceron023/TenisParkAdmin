@@ -21,7 +21,7 @@ public class ReservaCrearManejador {
 		this.fabricaReserva = fabricaReserva;
 	}
 	
-//	@Transactional
+	@Transactional
 	public void ejecutar(ReservaComando comandoReserva) {
         Reserva factura = this.fabricaReserva.crear(comandoReserva);
         this.servicioCrearReserva.ejecutar(factura);
