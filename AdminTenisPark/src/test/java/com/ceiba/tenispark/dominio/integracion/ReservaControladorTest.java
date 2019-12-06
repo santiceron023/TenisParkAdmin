@@ -40,10 +40,6 @@ public class ReservaControladorTest {
 	@Autowired
 	private MockMvc mockMvc;
 
-	@Autowired
-	private ReservaRepositorioPosgres reservaRepositorio;
-	private TarifaRepositorioPosgres tarifaRepositorio;
-
 	@Before
 	public void setup() throws Exception {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();				
@@ -67,19 +63,4 @@ public class ReservaControladorTest {
 		.andExpect(status().isCreated());
 	}
 	
-//	@Test
-//	public void reservaDuplicada() throws Exception {
-//		//arrange
-//		ReservaComando comando = new ReservaComandoTestDataBuilder().build();
-//		
-//
-//		//Act		
-//		//Assert
-//		mockMvc.perform(post("/reserva")
-//				.contentType(MediaType.APPLICATION_JSON)
-//				.content(objectMapper.writeValueAsString(comando))
-//				.accept(MediaType.APPLICATION_JSON))
-//		.andDo(print())
-//		.andExpect(status().isCreated());
-//	}
 }
