@@ -19,13 +19,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.ceiba.AdminTenisPark.AdminTenisParkApplication;
-import com.ceiba.AdminTenisPark.aplicacion.comando.ReservaComando;
 import com.ceiba.AdminTenisPark.dominio.testDataBuilder.ReservaComandoTestDataBuilder;
 import com.ceiba.AdminTenisPark.dominio.testDataBuilder.ReservaTestDataBuilder;
 import com.ceiba.AdminTenisPark.dominio.testDataBuilder.TarifaTestDataBuilder;
-import com.ceiba.AdminTenisPark.infraestructura.repositorio.adapter.ReservaRepositorioPosgres;
-import com.ceiba.AdminTenisPark.infraestructura.repositorio.adapter.TarifaRepositorioPosgres;
+import com.ceiba.adminTenisPark.AdminTenisParkApplication;
+import com.ceiba.adminTenisPark.aplicacion.comando.ReservaComando;
+import com.ceiba.adminTenisPark.infraestructura.repositorio.adapter.ReservaRepositorioPosgres;
+import com.ceiba.adminTenisPark.infraestructura.repositorio.adapter.TarifaRepositorioPosgres;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)

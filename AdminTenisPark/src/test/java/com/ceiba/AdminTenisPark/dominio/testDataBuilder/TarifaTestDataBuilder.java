@@ -3,8 +3,8 @@ package com.ceiba.AdminTenisPark.dominio.testDataBuilder;
 import java.time.LocalDateTime;
 import java.time.Month;
 
-import com.ceiba.AdminTenisPark.aplicacion.comando.TarifaComando;
-import com.ceiba.AdminTenisPark.dominio.modelo.Tarifa;
+import com.ceiba.adminTenisPark.aplicacion.comando.TarifaComando;
+import com.ceiba.adminTenisPark.dominio.modelo.Tarifa;
 
 public class TarifaTestDataBuilder {
 	

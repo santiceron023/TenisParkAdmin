@@ -3,7 +3,7 @@ package com.ceiba.AdminTenisPark.dominio.testDataBuilder;
 import java.time.LocalDateTime;
 import java.time.Month;
 
-import com.ceiba.AdminTenisPark.aplicacion.comando.ReservaComando;
+import com.ceiba.adminTenisPark.aplicacion.comando.ReservaComando;
 
 public class ReservaComandoTestDataBuilder {
 	
