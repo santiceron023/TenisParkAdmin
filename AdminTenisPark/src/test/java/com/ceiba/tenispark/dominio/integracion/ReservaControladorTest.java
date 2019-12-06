@@ -6,7 +6,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.postgresql.core.SqlCommandType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,9 +20,6 @@ import org.springframework.web.context.WebApplicationContext;
 import com.ceiba.tenispark.AdminTenisParkApplication;
 import com.ceiba.tenispark.aplicacion.comando.ReservaComando;
 import com.ceiba.tenispark.dominio.testDataBuilder.ReservaComandoTestDataBuilder;
-import com.ceiba.tenispark.dominio.testDataBuilder.TarifaTestDataBuilder;
-import com.ceiba.tenispark.infraestructura.repositorio.adapter.ReservaRepositorioPosgres;
-import com.ceiba.tenispark.infraestructura.repositorio.adapter.TarifaRepositorioPosgres;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
