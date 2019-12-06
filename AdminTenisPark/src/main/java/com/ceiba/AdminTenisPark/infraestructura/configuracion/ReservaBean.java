@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.ceiba.AdminTenisPark.dominio.puerto.repositorio.ReservaRepositorio;
+import com.ceiba.AdminTenisPark.dominio.servicio.reserva.ReservaConsultarServicio;
 import com.ceiba.AdminTenisPark.dominio.servicio.reserva.ReservaCrearServicio;
 
 
@@ -11,8 +12,13 @@ import com.ceiba.AdminTenisPark.dominio.servicio.reserva.ReservaCrearServicio;
 public class ReservaBean {
 
 	@Bean
-	public ReservaCrearServicio ReservaCrearBean(ReservaRepositorio repositorioReserva) {
+	public ReservaCrearServicio reservaCrearBean(ReservaRepositorio repositorioReserva) {
 		return new ReservaCrearServicio(repositorioReserva);
+	}
+	
+	@Bean
+	public ReservaConsultarServicio reservaConsultarBean(ReservaRepositorio repositorioReserva) {
+		return new ReservaConsultarServicio(repositorioReserva);
 	}
 
 

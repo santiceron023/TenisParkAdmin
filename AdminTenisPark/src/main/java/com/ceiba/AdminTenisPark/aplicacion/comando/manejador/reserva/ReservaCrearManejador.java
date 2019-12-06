@@ -9,7 +9,6 @@ import com.ceiba.AdminTenisPark.aplicacion.comando.fabrica.ReservaFabrica;
 import com.ceiba.AdminTenisPark.dominio.modelo.Reserva;
 import com.ceiba.AdminTenisPark.dominio.servicio.reserva.ReservaCrearServicio;
 
-
 @Component
 public class ReservaCrearManejador {
 	
@@ -21,7 +20,7 @@ public class ReservaCrearManejador {
 		this.fabricaReserva = fabricaReserva;
 	}
 	
-	@Transactional
+//	@Transactional
 	public void ejecutar(ReservaComando comandoReserva) {
         Reserva factura = this.fabricaReserva.crear(comandoReserva);
         this.servicioCrearReserva.ejecutar(factura);

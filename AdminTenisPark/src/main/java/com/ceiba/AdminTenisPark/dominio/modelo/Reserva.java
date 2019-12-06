@@ -3,9 +3,10 @@ package com.ceiba.AdminTenisPark.dominio.modelo;
 import java.time.LocalDateTime;
 
 public class Reserva {
+	//TODO ELIMINAR
 
-	private Integer id;
-	private Integer tarifa;
+//	private Integer id;
+	private Tarifa tarifa;
 	private Integer usuario;
 	private Integer cancha;
 	private LocalDateTime fechaInicio;		
@@ -15,27 +16,30 @@ public class Reserva {
 	
 	public Reserva() {
 	}
-	public Reserva(Integer id, Integer tarifa, Integer usuario, Integer cancha, LocalDateTime fechaInicio,
+	public Reserva(
+//			Integer id, 
+			Integer tarifaId, Integer usuario, Integer cancha, LocalDateTime fechaInicio,
 			LocalDateTime fechaFin, Integer numeroUsuarios) {
-		super();
-		this.id = id;
-		this.tarifa = tarifa;
+//		super();
+//		this.id = id;
+		this.tarifa = new Tarifa();
+		this.tarifa.setId(tarifaId);
 		this.usuario = usuario;
 		this.cancha = cancha;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.numeroUsuarios = numeroUsuarios;
 	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public Integer getTarifa() {
+//	public Integer getId() {
+//		return id;
+//	}
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
+	public Tarifa getTarifa() {
 		return tarifa;
 	}
-	public void setTarifa(Integer tarifa) {
+	public void setTarifa(Tarifa tarifa) {
 		this.tarifa = tarifa;
 	}
 	public Integer getUsuario() {

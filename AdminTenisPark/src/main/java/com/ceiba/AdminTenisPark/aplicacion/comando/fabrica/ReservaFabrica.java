@@ -11,7 +11,10 @@ import com.ceiba.AdminTenisPark.dominio.modelo.dto.FiltroReserva;
 public class ReservaFabrica {
 
 	public Reserva crear(ReservaComando comando) {
-		return new Reserva(comando.getId(), comando.getTarifa()
+		return new Reserva(
+				//TODO ELIMIANR
+//				comando.getId(), 
+				comando.getTarifa()
 				, comando.getUsuario(), comando.getCancha()
 				, comando.getFechaInicio(), comando.getFechaFin()
 				, comando.getNumeroUsuarios()

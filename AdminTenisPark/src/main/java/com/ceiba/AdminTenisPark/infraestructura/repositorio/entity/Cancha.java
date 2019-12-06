@@ -13,7 +13,7 @@ public class Cancha {
 
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
-	private Long codigo;
+	private Integer id;
 	
 	@Column(name = "Administrador", nullable = false, length = 100)
 	private String administrador;
@@ -21,9 +21,9 @@ public class Cancha {
 	@Column(name = "Telefono", nullable = false, length = 20)
 	private String telefono;
 
-	public Cancha(Long codigo, String administrador, String telefono) {
+	public Cancha(Integer id, String administrador, String telefono) {
 		super();
-		this.codigo = codigo;
+		this.id = id;
 		this.administrador = administrador;
 		this.telefono = telefono;
 	}
@@ -32,12 +32,12 @@ public class Cancha {
 		super();
 	}
 
-	public Long getCodigo() {
-		return codigo;
+	public Integer getId() {
+		return this.id;
 	}
 
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getAdministrador() {

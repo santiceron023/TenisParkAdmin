@@ -4,6 +4,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import javax.transaction.Transactional;
+
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -19,9 +21,11 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.ceiba.AdminTenisPark.AdminTenisParkApplication;
 import com.ceiba.AdminTenisPark.aplicacion.comando.ReservaComando;
-import com.ceiba.AdminTenisPark.dominio.testDataBuilder.ComandoReservaDataBuilder;
+import com.ceiba.AdminTenisPark.dominio.testDataBuilder.ReservaComandoTestDataBuilder;
 import com.ceiba.AdminTenisPark.dominio.testDataBuilder.ReservaTestDataBuilder;
+import com.ceiba.AdminTenisPark.dominio.testDataBuilder.TarifaTestDataBuilder;
 import com.ceiba.AdminTenisPark.infraestructura.repositorio.adapter.ReservaRepositorioPosgres;
+import com.ceiba.AdminTenisPark.infraestructura.repositorio.adapter.TarifaRepositorioPosgres;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
@@ -29,6 +33,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootTest(classes = AdminTenisParkApplication.class)
 @AutoConfigureMockMvc
 @TestPropertySource("/test.properties")
+//rollback
+@Transactional
 public class ControladorReservaTest {
 
 	@Autowired
@@ -40,13 +46,13 @@ public class ControladorReservaTest {
 	private MockMvc mockMvc;
 
 	@Autowired
-	private ReservaRepositorioPosgres respositorioReservaPosgress;
+	private ReservaRepositorioPosgres reservaRepositorio;
+	private TarifaRepositorioPosgres tarifaRepositorio;
 
 	@Before
 	public void setup() throws Exception {
-		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
-		
-		respositorioReservaPosgress.crear(new ReservaTestDataBuilder().build());		
+		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();		
+		tarifaRepositorio.crear(new TarifaTestDataBuilder().build());		
 	}
 
 //	@Test
@@ -66,17 +72,16 @@ public class ControladorReservaTest {
 //	@Test
 //	public void reservaDuplicada() throws Exception {
 //		//arrange
-//		ComandoReserva comandoFactura = new ComandoReservaDataBuilder().build();
-//
-//		//Act
-//		repositorioReservaPosgress
+//		ReservaComando comando = new ReservaComandoTestDataBuilder().build();
 //		
+//
+//		//Act		
 //		//Assert
 //		mockMvc.perform(post("http://localhost:8080/reserva")
 //				.contentType(MediaType.APPLICATION_JSON)
-//				.content(objectMapper.writeValueAsString(comandoFactura))
+//				.content(objectMapper.writeValueAsString(comando))
 //				.accept(MediaType.APPLICATION_JSON))
 //		.andDo(print())
-//		.andExpect(status().isOk());
+//		.andExpect(status().isCreated());
 //	}
 }

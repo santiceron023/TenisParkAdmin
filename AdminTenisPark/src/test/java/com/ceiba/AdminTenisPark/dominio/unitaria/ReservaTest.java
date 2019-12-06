@@ -25,7 +25,7 @@ public class ReservaTest {
 		Reserva producto = productoTestDataBuilder.build();
 
 		// assert
-		Assertions.assertEquals(NUMERO_CANCHA, producto.getNumeroCancha());
+		Assertions.assertEquals(NUMERO_CANCHA, producto.getCancha());
 		Assertions.assertEquals(FECHA_FIN, producto.getFechaFin());
 		Assertions.assertEquals(FECHA_INICIO, producto.getFechaInicio());
 

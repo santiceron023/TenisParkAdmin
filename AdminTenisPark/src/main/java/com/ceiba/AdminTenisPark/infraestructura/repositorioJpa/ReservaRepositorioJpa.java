@@ -12,8 +12,8 @@ import com.ceiba.AdminTenisPark.infraestructura.repositorio.entity.ReservaEntity
 
 public interface ReservaRepositorioJpa extends JpaRepository<ReservaEntity, Integer> {
 
-	@Query("SELECT * FROM Reserva r WHERE ( r.fechaInicio BETWEEN :fechaini AND :fechaFin ) AND"
-			+ "r.cancha == :cancha")
+	@Query(value="SELECT * FROM Reserva r WHERE ( r.fechaInicio BETWEEN :fechaIni AND :fechaFin ) AND"
+			+ " r.cancha = :cancha",nativeQuery = true)
 	List<ReservaEntity> obtenerFiltro(@Param("fechaIni") LocalDateTime inicio,
 			@Param("fechaFin") LocalDateTime fin,
 			@Param("cancha")Integer numeroCancha);

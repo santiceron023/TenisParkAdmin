@@ -13,7 +13,7 @@ public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	
 	@Column(name = "nombre", nullable = false, length = 100)
 	private String nombre;
@@ -23,4 +23,38 @@ public class Usuario {
 	
 	@Column(name = "identificacion", nullable = false, length = 100)
 	private Integer identificacion;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public Integer getIdentificacion() {
+		return identificacion;
+	}
+
+	public void setIdentificacion(Integer identificacion) {
+		this.identificacion = identificacion;
+	}
+	
+	
 }

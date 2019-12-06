@@ -25,11 +25,11 @@ public class ReservaEntity {
 	private TarifaEntity tarifa;
 
 	@ManyToOne
-	@JoinColumn(name = "id_usuario",nullable= false, foreignKey = @ForeignKey(name = "reserva_usuario") )
+	@JoinColumn(name = "id_usuario",nullable= true, foreignKey = @ForeignKey(name = "reserva_usuario") )
 	private Usuario usuario;
 
 	@ManyToOne
-	@JoinColumn(name = "id_cancha",nullable= false, foreignKey = @ForeignKey(name = "reserva_cancha") )
+	@JoinColumn(name = "id_cancha",nullable= true, foreignKey = @ForeignKey(name = "reserva_cancha") )
 	private Cancha cancha;
 
 	//dar formato a la fecha  ISODate 2019-10-01T05:00:00.000
