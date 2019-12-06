@@ -23,7 +23,7 @@ public class ReservaControlador {
 	}
 
 	@PostMapping
-	@ResponseStatus(HttpStatus.OK)
+	@ResponseStatus(HttpStatus.CREATED)
 	public void registrar(@RequestBody ReservaComando comandoReserva) {
 		this.manejadorCrearReserva.ejecutar(comandoReserva);
 	}

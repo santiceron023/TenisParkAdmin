@@ -22,7 +22,6 @@ import org.springframework.web.context.WebApplicationContext;
 import com.ceiba.tenispark.AdminTenisParkApplication;
 import com.ceiba.tenispark.aplicacion.comando.TarifaComando;
 import com.ceiba.tenispark.dominio.testDataBuilder.TarifaComandoTestDataBuilder;
-import com.ceiba.tenispark.infraestructura.repositorio.adapter.TarifaRepositorioPosgres;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
@@ -39,13 +38,10 @@ public class TarifaControladorTest {
 	@Autowired
 	private MockMvc mockMvc;
 
-	@Autowired
-	private TarifaRepositorioPosgres tarifaRepositorio;
-
 	@Before
 	public void setup() throws Exception {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();		
-		//		tarifaRepositorio.crear(new TarifaTestDataBuilder().build());		
+			
 	}
 
 
