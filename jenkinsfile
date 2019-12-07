@@ -61,7 +61,7 @@ pipeline {
    steps {
     echo "------------>Unit Tests<------------"
     dir("AdminTenisPark") {
-     sh 'gradle test'
+     sh 'gradle test --debug'
     }
     // sh 'gradle --b ./AdminTenisPark/build.gradle test'
     //sh 'gradle --b ./AdminTenisPark/build.gradle jacocoTestReport'
