@@ -3,6 +3,9 @@ package com.ceiba.tenispark.dominio.integracion;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import javax.transaction.Transactional;
+
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -26,6 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootTest(classes = AdminTenisParkApplication.class)
 @AutoConfigureMockMvc
 @TestPropertySource("/test.properties")
+@Transactional
 public class ReservaControladorTest {
 
 	@Autowired

@@ -6,6 +6,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import javax.transaction.Transactional;
+
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +31,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootTest(classes = AdminTenisParkApplication.class)
 @AutoConfigureMockMvc
 @TestPropertySource("/test.properties")
+@Transactional
 public class TarifaControladorTest {
 
 	private WebApplicationContext wac;
