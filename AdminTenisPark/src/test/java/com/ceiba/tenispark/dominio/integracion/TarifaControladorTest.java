@@ -31,7 +31,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootTest(classes = AdminTenisParkApplication.class)
 @AutoConfigureMockMvc
 @TestPropertySource("/test.properties")
-@Transactional
 public class TarifaControladorTest {
 
 	private WebApplicationContext wac;
@@ -49,6 +48,7 @@ public class TarifaControladorTest {
 
 
 	@Test
+	@Transactional
 	public void Cambiartarifa() throws Exception {
 		//arrange
 		TarifaComando comandoFactura = new TarifaComandoTestDataBuilder().build();
@@ -63,6 +63,7 @@ public class TarifaControladorTest {
 	}
 
 	@Test
+	@Transactional
 	public void DiaErroneo() throws Exception {
 		//arrange
 		TarifaComando comandoFactura = new TarifaComandoTestDataBuilder().buildErrorDia();
@@ -78,6 +79,7 @@ public class TarifaControladorTest {
 
 
 	@Test
+	@Transactional
 	public void Consulta() throws Exception {
 		//arrange
 		TarifaComando comandoFactura = new TarifaComandoTestDataBuilder().build();
