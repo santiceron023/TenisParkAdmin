@@ -4,13 +4,14 @@ import java.time.LocalDateTime;
 import java.time.Month;
 
 import com.ceiba.tenispark.aplicacion.comando.ReservaComando;
+import com.ceiba.tenispark.aplicacion.comando.manejador.FiltroReservaComando;
 
 public class ReservaComandoTestDataBuilder {
 	
 	private static final LocalDateTime FECHA_INICIO = 
-			LocalDateTime.of(2019, Month.APRIL, 1, 12, 0);
+			LocalDateTime.of(2019, Month.APRIL, 1, 12,11,10);
 	private static final LocalDateTime FECHA_FIN = 
-			LocalDateTime.of(2019, Month.APRIL, 1, 14, 0);
+			LocalDateTime.of(2019, Month.APRIL, 1, 14,13,12);
 	private static final Integer TARIFA_ID = 1;
 	private static final Integer USUARIO_ID = 1;
 	private static final Integer CANCHA_ID = 1;
@@ -22,6 +23,10 @@ public class ReservaComandoTestDataBuilder {
 	
 	public ReservaComando build() {
 		return new ReservaComando(FECHA_INICIO, FECHA_FIN, TARIFA_ID, USUARIO_ID, CANCHA_ID, NUMERO_USUARIOS);
+	}
+
+	public FiltroReservaComando buildFiltro() {
+		return new FiltroReservaComando(FECHA_INICIO.toLocalDate(), CANCHA_ID);
 	}
 	
 }

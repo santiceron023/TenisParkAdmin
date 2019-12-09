@@ -12,6 +12,11 @@ public class Reserva {
 	private LocalDateTime fechaInicio;		
 	private LocalDateTime fechaFin;	
 	private Integer numeroUsuarios;
+	
+	
+
+	public Reserva() {
+	}
 
 	public Reserva(
 			Integer tarifaId, Integer usuarioId, Integer canchaId, LocalDateTime fechaInicio,

@@ -4,7 +4,7 @@ import com.ceiba.tenispark.dominio.modelo.Tarifa;
 
 public class TarifaTestDataBuilder {
 
-	private static final Integer COSTO = 1;
+	private static final Integer COSTO = 2000;
 	private static final Integer DIA = 1;
 
 

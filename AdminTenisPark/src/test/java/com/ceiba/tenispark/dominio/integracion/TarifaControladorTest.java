@@ -43,7 +43,6 @@ public class TarifaControladorTest {
 	@Before
 	public void setup() throws Exception {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();		
-			
 	}
 
 
@@ -62,6 +61,30 @@ public class TarifaControladorTest {
 		.andExpect(status().isCreated());
 	}
 
+	//todo NO FUNCIONA EXTRAÑO REVISAR VS REPO
+	//TODO se sabe que e sporquwe no guarda la trnaccion anterior
+	@Test
+	@Transactional
+	public void Consulta() throws Exception {
+		//arrange
+		TarifaComando comandoFactura = new TarifaComandoTestDataBuilder().build();
+		mockMvc.perform(post("/tarifa")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(comandoFactura))
+				.accept(MediaType.APPLICATION_JSON));
+
+		//Act
+		mockMvc.perform(get("/tarifa")
+				.param("dia", "1")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(comandoFactura))
+				.accept(MediaType.APPLICATION_JSON))
+		.andDo(print())
+		//Assert
+		.andExpect(content().json("{'dia':1,'tarifa':2000}"));
+
+	}
+
 	@Test
 	@Transactional
 	public void DiaErroneo() throws Exception {
@@ -75,28 +98,6 @@ public class TarifaControladorTest {
 				.accept(MediaType.APPLICATION_JSON))
 		.andDo(print())
 		.andExpect(status().is4xxClientError());
-	}
-
-
-	@Test
-	@Transactional
-	public void Consulta() throws Exception {
-		//arrange
-		TarifaComando comandoFactura = new TarifaComandoTestDataBuilder().build();
-		mockMvc.perform(post("/tarifa")
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(comandoFactura))
-				.accept(MediaType.APPLICATION_JSON));
-
-		//Act-Assert
-		mockMvc.perform(get("/tarifa")
-				.param("dia", "1")
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(comandoFactura))
-				.accept(MediaType.APPLICATION_JSON))
-		.andDo(print())
-		.andExpect(content().json("{'dia':1,'tarifa':2000}"));
-
 	}
 }
 

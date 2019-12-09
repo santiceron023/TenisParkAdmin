@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "cancha")
-public class Cancha {
+public class CanchaEntity {
 
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -21,14 +21,14 @@ public class Cancha {
 	@Column(name = "Telefono", nullable = false, length = 20)
 	private String telefono;
 
-	public Cancha(Integer id, String administrador, String telefono) {
+	public CanchaEntity(Integer id, String administrador, String telefono) {
 		super();
 		this.id = id;
 		this.administrador = administrador;
 		this.telefono = telefono;
 	}
 
-	public Cancha() {
+	public CanchaEntity() {
 		super();
 	}
 

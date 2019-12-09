@@ -26,11 +26,11 @@ public class ReservaEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "id_usuario",nullable= true, foreignKey = @ForeignKey(name = "reserva_usuario") )
-	private Usuario usuario;
+	private UsuarioEntity usuario;
 
 	@ManyToOne
 	@JoinColumn(name = "id_cancha",nullable= true, foreignKey = @ForeignKey(name = "reserva_cancha") )
-	private Cancha cancha;
+	private CanchaEntity cancha;
 
 	//dar formato a la fecha  ISODate 2019-10-01T05:00:00.000
 	@Column
@@ -55,11 +55,11 @@ public class ReservaEntity {
 	public LocalDateTime getFechaFin() {
 		return fechaFin;
 	}
-	public Usuario getUsuario() {
+	public UsuarioEntity getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(UsuarioEntity usuario) {
 		this.usuario = usuario;
 	}
 
@@ -91,11 +91,11 @@ public class ReservaEntity {
 		this.tarifa = tarifa;
 	}
 
-	public Cancha getCancha() {
+	public CanchaEntity getCancha() {
 		return cancha;
 	}
 
-	public void setCancha(Cancha cancha) {
+	public void setCancha(CanchaEntity cancha) {
 		this.cancha = cancha;
 	}
 	
