@@ -35,9 +35,9 @@ public class ReservaRepositorioPosgres implements ReservaRepositorio {
 
 	@Override
 	public boolean reservaExiste(Reserva reserva) {
-		List<ReservaEntity> a = repositorioReservaJpa.obtenerFiltro
+		List<ReservaEntity> result = repositorioReservaJpa.obtenerFiltro
 				(reserva.getFechaInicio(), reserva.getFechaFin(), reserva.getCancha().getId());
-		if(a.isEmpty()) {
+		if(result.isEmpty()) {
 			return Boolean.FALSE;
 		}else{
 			return Boolean.TRUE;
