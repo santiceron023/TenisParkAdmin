@@ -30,6 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 //autowired app context (SpringJUnit4ClassRunner)
 @SpringBootTest(classes = AdminTenisParkApplication.class)
 @AutoConfigureMockMvc
+@Transactional
 @TestPropertySource("/test.properties")
 public class TarifaControladorTest {
 
@@ -47,7 +48,6 @@ public class TarifaControladorTest {
 
 
 	@Test
-	@Transactional
 	public void Cambiartarifa() throws Exception {
 		//arrange
 		TarifaComando comandoFactura = new TarifaComandoTestDataBuilder().build();
@@ -64,8 +64,8 @@ public class TarifaControladorTest {
 	//todo NO FUNCIONA EXTRAÑO REVISAR VS REPO
 	//TODO se sabe que e sporquwe no guarda la trnaccion anterior
 	@Test
-	@Transactional
 	public void Consulta() throws Exception {
+		
 		//arrange
 		TarifaComando comandoFactura = new TarifaComandoTestDataBuilder().build();
 		mockMvc.perform(post("/tarifa")
@@ -86,7 +86,6 @@ public class TarifaControladorTest {
 	}
 
 	@Test
-	@Transactional
 	public void DiaErroneo() throws Exception {
 		//arrange
 		TarifaComando comandoFactura = new TarifaComandoTestDataBuilder().buildErrorDia();

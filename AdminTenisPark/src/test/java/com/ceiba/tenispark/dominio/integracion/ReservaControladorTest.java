@@ -6,6 +6,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.time.LocalDate;
+
 import javax.transaction.Transactional;
 
 import org.junit.Before;
@@ -75,7 +77,6 @@ public class ReservaControladorTest {
 	executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 	public void consultar() throws Exception {
 		//arrange
-		FiltroReservaComando filtroComando = new ReservaComandoTestDataBuilder().buildFiltro();
 		ReservaComando comando = new ReservaComandoTestDataBuilder().build();
 		//SQL FILE
 		mockMvc.perform(post("/reserva")
@@ -86,7 +87,8 @@ public class ReservaControladorTest {
 		//Act
 		mockMvc.perform(get("/reserva")
 				.contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(filtroComando))
+				.param("fecha", comando.getFechaFin().toLocalDate().toString())
+				.param("cancha", comando.getCancha().toString())
 				.accept(MediaType.APPLICATION_JSON))
 		.andDo(print())
 		

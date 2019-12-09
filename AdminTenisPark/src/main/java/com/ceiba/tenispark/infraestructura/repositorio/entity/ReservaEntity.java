@@ -20,15 +20,15 @@ public class ReservaEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_tarifa",nullable= false, foreignKey = @ForeignKey(name = "reserva_tarifa") )
 	private TarifaEntity tarifa;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_usuario",nullable= true, foreignKey = @ForeignKey(name = "reserva_usuario") )
 	private UsuarioEntity usuario;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cancha",nullable= true, foreignKey = @ForeignKey(name = "reserva_cancha") )
 	private CanchaEntity cancha;
 
@@ -36,11 +36,11 @@ public class ReservaEntity {
 	@Column
 	@JsonSerialize(using = ToStringSerializer.class)
 	private LocalDateTime fechaInicio;		
-	
+
 	@Column
 	@JsonSerialize(using = ToStringSerializer.class)
 	private LocalDateTime fechaFin;	
-		
+
 	@Column(length = 1)
 	private Integer numeroUsuarios;
 
@@ -98,6 +98,6 @@ public class ReservaEntity {
 	public void setCancha(CanchaEntity cancha) {
 		this.cancha = cancha;
 	}
-	
-	
+
+
 }

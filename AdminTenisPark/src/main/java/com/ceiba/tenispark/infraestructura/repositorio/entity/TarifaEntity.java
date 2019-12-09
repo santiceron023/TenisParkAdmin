@@ -15,7 +15,6 @@ public class TarifaEntity {
 	private Integer costo;
 	
 	@Id
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private Integer dia;
 
 	public Integer getTarifa() {
@@ -33,6 +32,6 @@ public class TarifaEntity {
 	public void setDia(Integer dia) {
 		this.dia = dia;
 	}
-	
-	
+
+		
 }

@@ -1,7 +1,5 @@
 package com.ceiba.tenispark.aplicacion.comando.manejador.reserva;
 
-import javax.transaction.Transactional;
-
 import org.springframework.stereotype.Component;
 
 import com.ceiba.tenispark.aplicacion.comando.ReservaComando;
@@ -22,8 +20,8 @@ public class ReservaCrearManejador {
 	
 //	@Transactional
 	public void ejecutar(ReservaComando comandoReserva) {
-        Reserva factura = this.fabricaReserva.crear(comandoReserva);
-        this.servicioCrearReserva.ejecutar(factura);
+        Reserva comando = this.fabricaReserva.crear(comandoReserva);
+        this.servicioCrearReserva.ejecutar(comando);
     }    
     
 

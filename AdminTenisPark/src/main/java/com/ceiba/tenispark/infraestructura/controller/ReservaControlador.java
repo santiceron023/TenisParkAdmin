@@ -1,12 +1,17 @@
 package com.ceiba.tenispark.infraestructura.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.data.repository.query.Param;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,7 +46,9 @@ public class ReservaControlador {
 	
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
-	public List<Reserva> listar(@RequestBody FiltroReservaComando filtroReserva) {
+	public List<Reserva> listar(@RequestParam(value = "fecha")  @DateTimeFormat(iso = ISO.DATE)LocalDate fecha,
+			@RequestParam(value = "cancha") Integer cancha) {
+		FiltroReservaComando filtroReserva =  new FiltroReservaComando(fecha, cancha);
 		return this.manejadorConsultarReserva.ejecutar(filtroReserva);
 	}
 	
