@@ -4,8 +4,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Repository;
 
@@ -46,7 +44,6 @@ public class ReservaRepositorioPosgres implements ReservaRepositorio {
 
 	@Override
 	public List<Reserva> listarReservas(FiltroReservaDto filtro) {
-		Optional<ReservaEntity> a = repositorioReservaJpa.findById(1);
 		LocalDateTime inicio = LocalDateTime.of(filtro.getDia(), LocalTime.MIDNIGHT);
 		LocalDateTime fin = LocalDateTime.of(filtro.getDia(), LocalTime.MAX);
 		List<ReservaEntity> reservasEntity = 

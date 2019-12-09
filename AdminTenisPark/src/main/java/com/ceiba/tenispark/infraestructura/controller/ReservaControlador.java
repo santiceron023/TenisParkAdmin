@@ -3,7 +3,6 @@ package com.ceiba.tenispark.infraestructura.controller;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.springframework.data.repository.query.Param;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.http.HttpStatus;

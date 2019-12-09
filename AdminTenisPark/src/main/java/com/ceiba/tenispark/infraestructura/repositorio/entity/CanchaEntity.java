@@ -21,12 +21,6 @@ public class CanchaEntity {
 	@Column(name = "Telefono", nullable = false, length = 20)
 	private String telefono;
 
-//	public CanchaEntity(Integer id, String administrador, String telefono) {
-//		super();
-//		this.id = id;
-//		this.administrador = administrador;
-//		this.telefono = telefono;
-//	}
 
 	public Integer getId() {
 		return this.id;
