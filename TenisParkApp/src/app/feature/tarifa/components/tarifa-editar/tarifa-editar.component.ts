@@ -3,6 +3,9 @@ import { FormControl, Validators, FormGroup } from "@angular/forms";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { TarifaService } from "../../service/tarifa.service";
 import { Tarifa } from "../../shared/tarifa";
+import { MatDialog } from '@angular/material';
+import { AlertDialogComponent } from 'src/app/shared/alert/alert-dialog/alert-dialog.component';
+import { MSG_CREATED } from 'src/app/shared/var.const';
 
 @Component({
   selector: "app-tarifa-editar",
@@ -13,7 +16,9 @@ export class TarifaEditarComponent implements OnInit {
   form:FormGroup;
   id: number;
 
-  constructor(private router: Router, private tarifaService: TarifaService) {}
+  constructor(private router: Router,
+    private matDialog:MatDialog,
+     private tarifaService: TarifaService) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -27,6 +32,7 @@ export class TarifaEditarComponent implements OnInit {
       this.form.get('tarifaFormCtrl').value
     );
     this.tarifaService.crear(tarifa).subscribe(data => {
+      this.matDialog.open(AlertDialogComponent,{data: MSG_CREATED});
       this.tarifaService.tarifaEditar = null;
       this.tarifaService.recargar.next(true);
       this.router.navigateByUrl("/tarifa");

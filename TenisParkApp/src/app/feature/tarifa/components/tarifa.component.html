@@ -4,7 +4,7 @@
 
 <router-outlet></router-outlet>
 
-<mat-table [dataSource]="dataSource">
+<mat-table [dataSource]="dataSource" id="tarifasTable">
   <ng-container matColumnDef="dia">
     <mat-header-cell *matHeaderCellDef> Día </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{ element.dia }}</mat-cell>
@@ -20,7 +20,7 @@
   <ng-container matColumnDef="acciones">
     <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
     <mat-cell *matCellDef="let element"> 
-            <button mat-button color="primary" (click)="modificar(element)">modificar</button>
+            <button mat-raised-button color="primary" (click)="modificar(element)">modificar</button>
     </mat-cell>
   </ng-container>
 

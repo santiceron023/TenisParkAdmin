@@ -32,6 +32,10 @@
   </mat-form-field>
 
   <mat-form-field>
+    <input matInput placeholder="Número de usuarios" formControlName="cantidadFormCtrl" />
+  </mat-form-field>
+
+  <mat-form-field>
     <input
       matInput
       [matDatepicker]="picker"
@@ -43,7 +47,7 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-  <button type="button" color="primary" mat-raised-button (click)="guardar()">
+  <button type="button" id="reservaGuardarBtn" color="primary" mat-raised-button (click)="guardar()">
     guardar
   </button>
 </form>

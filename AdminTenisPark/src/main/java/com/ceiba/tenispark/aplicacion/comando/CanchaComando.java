@@ -1,17 +1,35 @@
 package com.ceiba.tenispark.aplicacion.comando;
 
 public class CanchaComando {
-	private Integer id;
 	private String administrador;
 	private String telefono;
-	
+	private Integer id;
+
 	public CanchaComando() {
 	}
 
 	public CanchaComando(Integer id, String administrador, String telefono) {
-		this.id = id;
-		this.administrador = administrador;
 		this.telefono = telefono;
+		this.administrador = administrador;
+		this.id = id;
+	}
+
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+
+	public String getAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(String administrador) {
+		this.administrador = administrador;
 	}
 
 	public Integer getId() {
@@ -22,24 +40,8 @@ public class CanchaComando {
 		this.id = id;
 	}
 
-	public String getAdministrador() {
-		return administrador;
-	}
 
-	public void setAdministrador(String administrador) {
-		this.administrador = administrador;
-	}
 
-	public String getTelefono() {
-		return telefono;
-	}
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-	
-	
-	
-	
 
 }

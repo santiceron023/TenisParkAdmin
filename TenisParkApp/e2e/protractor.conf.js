@@ -29,9 +29,18 @@ exports.config = {
       project: require('path').join(__dirname, './tsconfig.json')
     });
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
-    jasmine.getEnv().addReporter(new HtmlReporter({
-      baseDirectory: 'tmp/screenshots'
-   }).getJasmine2Reporter());
+  //   jasmine.getEnv().addReporter(new HtmlReporter({
+  //     baseDirectory: 'tmp/screenshots'
+  //  }).getJasmine2Reporter());
+
+
+   // @ts-ignore
+   by.addLocator('formControlName', function(value, opt_parentElement, opt_rootSelector) {
+    var using = opt_parentElement || document;
+  
+    return using.querySelectorAll('[formControlName="' + value +'"]');
+  });
+   
     
   }
 };

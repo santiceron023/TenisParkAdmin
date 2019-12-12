@@ -4,6 +4,9 @@ import { CanchaService } from '../../service/cancha.service';
 import { Cancha } from '../../shared/Cancha';
 import { markFormGroupTouched } from 'src/app/shared/utils';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { AlertDialogComponent } from 'src/app/shared/alert/alert-dialog/alert-dialog.component';
+import { MSG_CREATED } from 'src/app/shared/var.const';
 
 @Component({
   selector: "app-cancha-crear",
@@ -13,7 +16,8 @@ import { Router } from '@angular/router';
 export class CanchaCrearComponent implements OnInit {
   form: FormGroup;
   constructor(private canchaService:CanchaService,
-    private router:Router) {}
+    private router:Router,
+    public dialog: MatDialog) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -35,6 +39,9 @@ export class CanchaCrearComponent implements OnInit {
 
     this.canchaService.crear(cancha).subscribe((data)=>
     {
+      this.dialog.open(AlertDialogComponent,{
+        data: MSG_CREATED
+      });
       this.canchaService.recargar.next(true);
       this.router.navigateByUrl('/cancha');
     });
