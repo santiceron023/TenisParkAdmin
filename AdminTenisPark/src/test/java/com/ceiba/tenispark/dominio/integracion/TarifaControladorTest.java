@@ -4,6 +4,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import javax.transaction.Transactional;
@@ -50,50 +51,50 @@ public class TarifaControladorTest {
 	@Test
 	public void Cambiartarifa() throws Exception {
 		//arrange
-		TarifaComando comandoFactura = new TarifaComandoTestDataBuilder().build();
+		TarifaComando comandoTarifa = new TarifaComandoTestDataBuilder().build();
 
 		//Act-Assert
 		mockMvc.perform(post("/tarifa")
 				.contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(comandoFactura))
+				.content(objectMapper.writeValueAsString(comandoTarifa))
 				.accept(MediaType.APPLICATION_JSON))
 		.andDo(print())
 		.andExpect(status().isCreated());
 	}
 
-	//todo NO FUNCIONA EXTRAÑO REVISAR VS REPO
-	//TODO se sabe que e sporquwe no guarda la trnaccion anterior
+
 	@Test
 	public void Consulta() throws Exception {
 		
 		//arrange
-		TarifaComando comandoFactura = new TarifaComandoTestDataBuilder().build();
+		TarifaComando tarifaComando = new TarifaComandoTestDataBuilder().build();
 		mockMvc.perform(post("/tarifa")
 				.contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(comandoFactura))
+				.content(objectMapper.writeValueAsString(tarifaComando))
 				.accept(MediaType.APPLICATION_JSON));
 
 		//Act
 		mockMvc.perform(get("/tarifa")
-				.param("dia", "1")
 				.contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(comandoFactura))
+				.content(objectMapper.writeValueAsString(tarifaComando))
 				.accept(MediaType.APPLICATION_JSON))
 		.andDo(print())
 		//Assert
-		.andExpect(content().json("{'dia':1,'tarifa':2000}"));
+		
+		 .andExpect(jsonPath("$[0].dia").value(tarifaComando.getDia().toString()))
+	     .andExpect(jsonPath("$[0].costo").value(tarifaComando.getCosto().toString()));
 
 	}
 
 	@Test
 	public void DiaErroneo() throws Exception {
 		//arrange
-		TarifaComando comandoFactura = new TarifaComandoTestDataBuilder().buildErrorDia();
+		TarifaComando tarifaComando = new TarifaComandoTestDataBuilder().buildErrorDia();
 
 		//Act-Assert
 		mockMvc.perform(post("/tarifa")
 				.contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(comandoFactura))
+				.content(objectMapper.writeValueAsString(tarifaComando))
 				.accept(MediaType.APPLICATION_JSON))
 		.andDo(print())
 		.andExpect(status().is4xxClientError());

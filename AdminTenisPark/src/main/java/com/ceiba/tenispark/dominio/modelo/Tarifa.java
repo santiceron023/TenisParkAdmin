@@ -8,21 +8,23 @@ public class Tarifa {
 	private Integer dia;
 	private Integer costo;
 
-	public Tarifa(Integer tarifa, Integer dia) {
+	public Tarifa(Integer costo, Integer dia) {
 		ValidadorArgumentos.validarDia(dia);
 		this.dia = dia;
-		this.costo = tarifa;
+		this.costo = costo;
 	}
 	
 	public Tarifa() {
 	}
-
-	public Integer getTarifa() {
+	
+	public Integer getCosto() {
 		return costo;
 	}
-	public void setTarifa(Integer tarifa) {
-		this.costo = tarifa;
+
+	public void setCosto(Integer costo) {
+		this.costo = costo;
 	}
+
 	public Integer getDia() {
 		return dia;
 	}

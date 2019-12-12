@@ -1,5 +1,8 @@
 package com.ceiba.tenispark.infraestructura.repositorio.adapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Repository;
 
@@ -19,9 +22,13 @@ public class TarifaRepositorioPosgres implements TarifaRepositorio{
 	}
 
 	@Override
-	public Tarifa consultar(int dia) {
-		TarifaEntity tarifaEntity = repoJpa.consultarPorDia(dia);
-		return modelMapper.map(tarifaEntity, Tarifa.class);
+	public List<Tarifa> listar() {
+		List<TarifaEntity> tarifaEntities = repoJpa.findAll();
+		List<Tarifa> tarifas = new ArrayList<>();
+		for (TarifaEntity tarifaEntity : tarifaEntities) {
+			tarifas.add(modelMapper.map(tarifaEntity, Tarifa.class));			
+		}
+		return tarifas;
 	}
 
 	@Override

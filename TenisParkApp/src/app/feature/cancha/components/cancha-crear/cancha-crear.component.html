@@ -1,0 +1,20 @@
+<p>cancha-crear works!</p>
+
+<form [formGroup]="form">
+
+  <mat-form-field>
+    <input matInput placeholder="Número de cancha" formControlName="numeroFormCtrl" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Administrador" formControlName="administradorFormCtrl" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Teléfono" formControlName="telefonoFormCtrl" />
+  </mat-form-field>
+
+  <button type="button" color="primary" mat-raised-button (click)="guardar()">
+    guardar
+  </button>
+</form>

@@ -11,7 +11,7 @@ pipeline {
  //Opciones específicas de Pipeline dentro del Pipeline
  options {
   //Mantener artefactos y salida de consola para el # específico de ejecuciones recientes del Pipeline.
-  buildDiscarder(logRotator(numToKeepStr: '3'))
+  buildDiscarder(logRotator(numToKeepStr: '4'))
   //No permitir ejecuciones concurrentes de Pipeline
   disableConcurrentBuilds()
  }
@@ -52,19 +52,17 @@ pipeline {
     echo "------------>Build<------------"
     dir("AdminTenisPark") {
      sh 'gradle build -x test'
-     //sh 'gradle --b ./AdminTenisPark/build.gradle build -x 
     }
    }
   }
 
-  stage('Compile & Unit Tests') {
+  stage('Tests') {
    steps {
-    echo "------------>Unit Tests<------------"
+    echo "------------>Tests<------------"
     dir("AdminTenisPark") {
-     sh 'gradle test --debug'
+      sh 'gradle test'
+      // --debug'
     }
-    // sh 'gradle --b ./AdminTenisPark/build.gradle test'
-    //sh 'gradle --b ./AdminTenisPark/build.gradle jacocoTestReport'
    }
   }
 

@@ -1,0 +1,68 @@
+<p>reserva-listar works!</p>
+
+<form [formGroup]="form">
+
+  <mat-form-field>
+      <mat-label>número de cancha</mat-label>
+      <mat-select formControlName="canchaFormCtrl">
+        <mat-option *ngFor="let cancha of canchas" [value]="cancha.id">
+          {{ cancha.id }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      placeholder="Escoge una fecha"
+      formControlName="fechaFormCtrl"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <button type="button" color="primary" mat-raised-button (click)="buscar()">Buscar</button>
+</form>
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="usuario">
+    <mat-header-cell *matHeaderCellDef> Usuario </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.usuario.nombre }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="cancha">
+    <mat-header-cell *matHeaderCellDef> Cancha </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.cancha.id }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="horaInicio">
+    <mat-header-cell *matHeaderCellDef> Hora Inicio </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.fechaInicio | date: "medium" }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="horaFin">
+    <mat-header-cell *matHeaderCellDef> Hora Fin </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ element.fechaFin | date: "medium" }}</mat-cell
+    >
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="disclaimer">
+      <mat-footer-cell *matFooterCellDef colspan="2">
+          No hay reservas!!
+      </mat-footer-cell>
+    </ng-container> -->
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+  <!-- <ng-container *ngIf="dataSource.data.length === 0">
+  <mat-footer-row *matFooterRowDef="['disclaimer']" class="example-second-footer-row"></mat-footer-row>
+</ng-container> -->
+
+</mat-table>
+
+<div class="mat-elevation-z8 mat-table table-item-msg">
+  {{infoMessage}}
+</div>

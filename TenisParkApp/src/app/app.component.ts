@@ -11,8 +11,9 @@ export class AppComponent {
   title = 'app-base';
   public elementos: Item[] = [
     { url: '/home', nombre: 'home' },
-    { url: '/producto', nombre: 'Tarifas' },
-    { url: '/producto', nombre: 'Reservas' }    
+    { url: '/tarifa', nombre: 'Tarifas' },
+    { url: '/reserva', nombre: 'Reservas' },  
+    { url: '/cancha', nombre: 'Canchas' } 
   ];
 
   

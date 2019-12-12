@@ -13,7 +13,7 @@ public class ReservaFabrica {
 
 	public Reserva crear(ReservaComando comando) {
 		return new Reserva(
-				comando.getTarifa()
+				comando.getFechaInicio().getDayOfWeek().getValue()
 				, comando.getUsuario(), comando.getCancha()
 				, comando.getFechaInicio(), comando.getFechaFin()
 				, comando.getNumeroUsuarios()

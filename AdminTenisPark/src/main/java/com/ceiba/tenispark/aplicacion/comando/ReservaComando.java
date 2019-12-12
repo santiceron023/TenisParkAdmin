@@ -6,7 +6,6 @@ public class ReservaComando {
 
 	private LocalDateTime fechaInicio;
 	private LocalDateTime fechaFin;
-	private Integer tarifa;
 	private Integer usuario;
 	private Integer cancha;
 	private Integer numeroUsuarios;
@@ -14,22 +13,13 @@ public class ReservaComando {
 	public ReservaComando() {
 	}
 	
-	public ReservaComando(LocalDateTime fechaInicio, LocalDateTime fechaFin, Integer tarifa,
-			Integer usuario, Integer cancha, Integer numeroUsuarios) {
+	public ReservaComando(LocalDateTime fechaInicio, LocalDateTime fechaFin,
+			Integer usuario, Integer cancha, Integer numeroUsuarios) {		
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
-		this.tarifa = tarifa;
 		this.usuario = usuario;
 		this.cancha = cancha;
 		this.numeroUsuarios = numeroUsuarios;
-	}
-	
-	public Integer getTarifa() {
-		return tarifa;
-	}
-
-	public void setTarifa(Integer tarifa) {
-		this.tarifa = tarifa;
 	}
 
 	public Integer getUsuario() {

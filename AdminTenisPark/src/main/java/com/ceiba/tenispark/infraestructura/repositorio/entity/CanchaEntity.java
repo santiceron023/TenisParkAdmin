@@ -12,7 +12,6 @@ import javax.persistence.Table;
 public class CanchaEntity {
 
 	@Id
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(name = "Administrador", nullable = false, length = 100)

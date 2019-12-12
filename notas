@@ -1,0 +1,49 @@
+
+Para prácticar los conocimientos aprendidos usted debe plantear un problema de negocio que tenga las siguientes caracteristicas
+Debe ser un problema el cual se pueda solucionar mediante una aplicación WEB
+Mínimo debe tener tres reglas de negocio principales, que involucren manejos de fechas y dinero, Ejemplo:
+Dada una fecha calcular el siguiente dia hábil para permitir agendar una cita
+Que no se puedan hacer pedidos sabados y domingos
+Si el dia es festivo cobrar el doble de tarifa
+Debe tener como mínimo dos servicios REST transaccionales(creación, actualizacion, eliminación de datos)
+Deber tener mínimo un servicio REST de consulta, el cual permita listar la información modificada o creada en los otros servicios
+El problema debe tener manipulación de datos persistentes (manejar una base de datos)
+El problema debe poder tener una interfaz grafica para interacturar con los servicios (Angular)
+ 
+
+Para plantear este problema usted tiene 2 horas, y debe enviar un correo pidiendo la aprobación del problema a su persona encargada de ADN antes de empezar a desarrollar
+
+  
+
+Metas:
+
+primer entregable:
+
+parte de backend construida (con arquitectura hexagonal)
+
+pruebas unitarias al dominio (con test data builder y patron 3a)
+
+pruebas de integracion al controlador (usando mock mvc)
+
+jenkins y sonar (que se vea cobertura (jacoco) y deuda técnica)
+
+ 
+
+segundo entregable:
+
+backend construido
+pruebas unitarias al dominio
+pruebas de integracion
+pruebas de carga
+front construido
+orueba funcional con protractor
+clean code, arquitectura
+sonar, deuda tecnica, cobertura, calidad prueba.        
+
+
+La aplicación debe ser construida para la Web
+La interfaz gráfica Web se debe adaptar a los celulares
+Los servicios REST deben aceptar mínimo 100 peticiones concurrentes por minuto con un tiempo de respuesta cada una no mayor a 1,5 seg (jmeter)
+Todo el software se debe construir con pruebas automatizadas, para validar cada una de las capas. Por ejemplo, pruebas unitarias, integración, carga y funcionales (protractor).
+Todas las pruebas y el proceso debe quedar automatizado en el servidor de Integración Continua.
+El servidor de producción sobre el que se instalará la aplicación tiene Linux (Ubuntu 12) con 2 Gb de memoria RAM y 4 cores de procesamiento

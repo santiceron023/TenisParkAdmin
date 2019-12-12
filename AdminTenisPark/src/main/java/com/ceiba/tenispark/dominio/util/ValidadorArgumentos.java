@@ -1,10 +1,14 @@
 package com.ceiba.tenispark.dominio.util;
 
+
+import java.time.LocalDateTime;
 import com.ceiba.tenispark.dominio.excepcion.ExcepcionDominio;
 
 public final class ValidadorArgumentos {
 
 	private ValidadorArgumentos() {
+		 //this prevents even the class from calling this ctor as well :
+	    throw new AssertionError();
 	}	
 
 	public static void validarDia(int dia) {
@@ -16,8 +20,15 @@ public final class ValidadorArgumentos {
 	
 	public static void validarNoVacio(Integer valor) {
 		if(valor == null) {
-			throw new ExcepcionDominio(MESSAGES.CONTRAIN_VIOLADO);
+			throw new ExcepcionDominio(MESSAGES.CONSTRAIN_VIOLADO);
 		}
+	}
+	
+	public static void validarFechas(LocalDateTime inicio,LocalDateTime fin) {
+		if(inicio.isAfter(fin)) {
+			throw new ExcepcionDominio(MESSAGES.FECHAS_NOVALIDAS);
+		}
+
 	}
 
 }

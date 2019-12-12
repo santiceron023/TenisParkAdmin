@@ -23,8 +23,12 @@ public class Reserva {
 			LocalDateTime fechaFin, Integer numeroUsuarios) {
 		
 		ValidadorArgumentos.validarNoVacio(tarifaId);
+		ValidadorArgumentos.validarDia(tarifaId);
+		ValidadorArgumentos.validarFechas(fechaInicio, fechaFin);
+		
 		ValidadorArgumentos.validarNoVacio(usuarioId);
 		ValidadorArgumentos.validarNoVacio(canchaId);
+		
 		this.tarifa = new Tarifa();
 		this.cancha = new Cancha();
 		this.usuario = new Usuario();

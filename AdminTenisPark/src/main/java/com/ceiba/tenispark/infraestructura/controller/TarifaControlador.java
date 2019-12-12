@@ -1,5 +1,7 @@
 package com.ceiba.tenispark.infraestructura.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ceiba.tenispark.aplicacion.comando.TarifaComando;
-import com.ceiba.tenispark.aplicacion.comando.manejador.tarifa.TarifaConsultarManejador;
+import com.ceiba.tenispark.aplicacion.comando.manejador.tarifa.TarifaListarManejador;
 import com.ceiba.tenispark.aplicacion.comando.manejador.tarifa.TarifaCrearManejador;
 import com.ceiba.tenispark.dominio.modelo.Tarifa;
 
@@ -19,10 +21,10 @@ import com.ceiba.tenispark.dominio.modelo.Tarifa;
 @RequestMapping(value = "/tarifa")
 public class TarifaControlador {
 	
-	private final TarifaConsultarManejador  consultarManejador;
+	private final TarifaListarManejador  consultarManejador;
 	private final TarifaCrearManejador  crearManejador;
 	
-	public TarifaControlador(TarifaConsultarManejador consultarManejador,
+	public TarifaControlador(TarifaListarManejador consultarManejador,
 			TarifaCrearManejador crearManejador) {
 		this.consultarManejador = consultarManejador;
 		this.crearManejador = crearManejador;
@@ -37,8 +39,8 @@ public class TarifaControlador {
 	
 	@GetMapping()
 	@ResponseStatus(HttpStatus.OK)
-	public Tarifa obtenerTarifaPorDia(@RequestParam Integer dia) {
-		return this.consultarManejador.ejecutar(dia);
+	public List<Tarifa> listarTarifas() {
+		return this.consultarManejador.ejecutar();
 	}
 	
 }

@@ -1,0 +1,28 @@
+<mat-toolbar>
+    <p>Tarifa</p>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="dia">
+    <mat-header-cell *matHeaderCellDef> Día </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.dia }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="tarifa">
+    <mat-header-cell *matHeaderCellDef> Tarifa </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.costo }}</mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+  <ng-container matColumnDef="acciones">
+    <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+    <mat-cell *matCellDef="let element"> 
+            <button mat-button color="primary" (click)="modificar(element)">modificar</button>
+    </mat-cell>
+  </ng-container>
+
+
+</mat-table>

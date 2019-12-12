@@ -99,4 +99,21 @@ public class ReservaControladorTest {
         .andExpect(jsonPath("$[0].numeroUsuarios").value(comando.getNumeroUsuarios().toString()));
 	}
 	
+
+	@Test
+	@Transactional
+	public void CREARFECHASMALAS() throws Exception {
+		//arrange
+		ReservaComando comando = new ReservaComandoTestDataBuilder().buildBadDates();
+		//Act
+		mockMvc.perform(post("/reserva")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(comando))
+				.accept(MediaType.APPLICATION_JSON))
+		.andDo(print())
+		
+		//Assert
+		.andExpect(status().is4xxClientError());
+	}
+	
 }

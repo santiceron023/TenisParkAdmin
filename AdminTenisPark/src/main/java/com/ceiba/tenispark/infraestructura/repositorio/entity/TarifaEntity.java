@@ -15,12 +15,14 @@ public class TarifaEntity {
 	@Id
 	private Integer dia;
 
-	public Integer getTarifa() {
+
+
+	public Integer getCosto() {
 		return costo;
 	}
 
-	public void setTarifa(Integer tarifa) {
-		this.costo = tarifa;
+	public void setCosto(Integer costo) {
+		this.costo = costo;
 	}
 
 	public Integer getDia() {
