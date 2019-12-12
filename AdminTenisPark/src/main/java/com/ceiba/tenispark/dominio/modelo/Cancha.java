@@ -7,22 +7,10 @@ public class Cancha {
 	private String telefono;
 	public Cancha(Integer id, String administrador, String telefono) {
 		this.id = id;
-		this.administrador = administrador;
 		this.telefono = telefono;
+		this.administrador = administrador;
 	}
 	public Cancha() {
-	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getAdministrador() {
-		return administrador;
-	}
-	public void setAdministrador(String administrador) {
-		this.administrador = administrador;
 	}
 	public String getTelefono() {
 		return telefono;
@@ -30,6 +18,18 @@ public class Cancha {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-		
+	
+	public String getAdministrador() {
+		return administrador;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public void setAdministrador(String administrador) {
+		this.administrador = administrador;
+	}
+	public Integer getId() {
+		return id;
+	}
 
 }
