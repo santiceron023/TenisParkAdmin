@@ -8,5 +8,6 @@ INSERT INTO tarifa (dia,costo) VALUES (6,60000);
 INSERT INTO tarifa (dia,costo) VALUES (7,70000);
 ---- USUARIO
 INSERT INTO usuario (id,identificacion,nombre,telefono) VALUES (1,123456,'Daniela Orozco','300 586432 1123');
+INSERT INTO usuario (id,identificacion,nombre,telefono) VALUES (2,571952,'Esteban Castro','240');
 ---- CANCHA
 INSERT INTO cancha (id,administrador,telefono) VALUES (1,'Cecilio Maraima','571 02 23');
