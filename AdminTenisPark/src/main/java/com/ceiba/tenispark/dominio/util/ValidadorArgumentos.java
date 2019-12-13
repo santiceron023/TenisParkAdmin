@@ -18,7 +18,7 @@ public final class ValidadorArgumentos {
 
 	}
 	
-	public static void validarNoVacio(Integer valor) {
+	public static void validarNoVacio(Object valor) {
 		if(valor == null) {
 			throw new ExcepcionDominio(MESSAGES.CONSTRAIN_VIOLADO);
 		}

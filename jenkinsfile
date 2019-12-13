@@ -62,15 +62,15 @@ pipeline {
    }
   }
 
-  stage('Tests') {
-   steps {
-    echo "------------>Tests<------------"
-    dir("AdminTenisPark") {
-      sh 'gradle test'
-      // --debug'
-    }
-   }
-  }
+  // stage('Tests') {
+  //  steps {
+  //   echo "------------>Tests<------------"
+  //   dir("AdminTenisPark") {
+  //     sh 'gradle test'
+  //     // --debug'
+  //   }
+  //  }
+  // }
 
   stage('Static Code Analysis') {
    steps {
@@ -84,16 +84,15 @@ pipeline {
   }
  }
 
- stage('Test_carga') {
-    steps {
-        echo '------------>test carga<------------'                     
-        dir("${PROJETC_PATH_JMETER}"){                    
-            //sh 'rm ${WORKSPACE}/performacetest.jtl'       
-            sh './jmeter  -n -t ${WORKSPACE}/testsApi.jmx -l ${WORKSPACE}/performacetest.jtl'   
-            performanceReport parsers: [[$class: 'JMeterParser', glob: "${WORKSPACE}/performacetest.jtl"]], sourceDataFiles: "${WORKSPACE}/performacetest.jtl", errorFailedThreshold: 25, errorUnstableThreshold: 25, ignoreFailedBuilds: false, ignoreUnstableBuilds: false, relativeFailedThresholdNegative: 0, relativeFailedThresholdPositive: 0, relativeUnstableThresholdNegative: 0, relativeUnstableThresholdPositive: 0
-        }
-    }
-}
+//  stage('Test_carga') {
+//     steps {
+//         echo '------------>test carga<------------'                     
+//         dir("${PROJETC_PATH_JMETER}"){                         
+//             sh './jmeter  -n -t ${WORKSPACE}/testsApi.jmx -l ${WORKSPACE}/performacetest.jtl'   
+//             performanceReport parsers: [[$class: 'JMeterParser', glob: "${WORKSPACE}/performacetest.jtl"]], sourceDataFiles: "${WORKSPACE}/performacetest.jtl", errorFailedThreshold: 10, errorUnstableThreshold: 15, ignoreFailedBuilds: false, ignoreUnstableBuilds: false, relativeFailedThresholdNegative: 0, relativeFailedThresholdPositive: 0, relativeUnstableThresholdNegative: 0, relativeUnstableThresholdPositive: 0
+//         }
+//     }
+// }
 
 }
 

@@ -9,6 +9,8 @@ public class Tarifa {
 	private Integer costo;
 
 	public Tarifa(Integer costo, Integer dia) {
+		ValidadorArgumentos.validarNoVacio(costo);
+		ValidadorArgumentos.validarNoVacio(dia);
 		ValidadorArgumentos.validarDia(dia);
 		this.dia = dia;
 		this.costo = costo;
