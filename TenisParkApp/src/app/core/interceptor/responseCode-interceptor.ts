@@ -1,20 +1,20 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
   HttpEvent,
   HttpErrorResponse
-} from "@angular/common/http";
-import { Observable, throwError } from "rxjs";
-import { catchError } from "rxjs/operators";
-import { MatDialog } from "@angular/material";
-import { AlertDialogComponent } from "../../shared/alert/alert-dialog/alert-dialog.component";
+} from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { MatDialog } from '@angular/material';
+import { AlertDialogComponent } from '../../shared/alert/alert-dialog/alert-dialog.component';
 import {
   ERR_CONECTION,
   ERR_SERVER,
   ERR_CLIENT
-} from "src/app/shared/var.const";
+} from 'src/app/shared/var.const';
 
 @Injectable()
 export class ResponseCodeInterceptor implements HttpInterceptor {
@@ -36,13 +36,13 @@ export class ResponseCodeInterceptor implements HttpInterceptor {
 
         if (e.status === this.CODE_ERR_SERVER) {
           this.dialog.open(AlertDialogComponent, {
-            data: ERR_SERVER + e.error["mensaje"]
+            data: ERR_SERVER + e.error.mensaje
           });
         }
 
         if (e.status === this.CODE_ERR_CLIENT) {
           this.dialog.open(AlertDialogComponent, {
-            data: ERR_CLIENT + e.error["mensaje"]
+            data: ERR_CLIENT + e.error.mensaje
           });
         }
 
