@@ -62,15 +62,14 @@ pipeline {
    }
   }
 
-  // stage('Tests') {
-  //  steps {
-  //   echo "------------>Tests<------------"
-  //   dir("AdminTenisPark") {
-  //     sh 'gradle test'
-  //     // --debug'
-  //   }
-  //  }
-  // }
+  stage('Tests') {
+   steps {
+    echo "------------>Tests<------------"
+    dir("AdminTenisPark") {
+      sh 'gradle test' // --debug'
+    }
+   }
+  }
 
   stage('Static Code Analysis') {
    steps {
