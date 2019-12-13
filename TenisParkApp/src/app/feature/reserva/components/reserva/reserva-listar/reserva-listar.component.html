@@ -48,6 +48,13 @@
     >
   </ng-container>
 
+  <ng-container matColumnDef="costo">
+    <mat-header-cell *matHeaderCellDef> Tarifa </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ element.tarifa.costo  | currency }}</mat-cell
+    >
+  </ng-container>
+
   <!-- <ng-container matColumnDef="disclaimer">
       <mat-footer-cell *matFooterCellDef colspan="2">
           No hay reservas!!

@@ -4,6 +4,7 @@ import { Cancha } from "src/app/feature/cancha/shared/Cancha";
 import { Usuario } from "src/app/feature/usuario/shared/Usuario";
 import { ReservaService } from "../../../service/reserva.service";
 import { ReservaComando } from "../../../shared/reservaComando";
+import { markFormGroupTouched } from 'src/app/shared/utils';
 import { CanchaService } from 'src/app/feature/cancha/service/cancha.service';
 import { UsuarioService } from 'src/app/feature/usuario/service/usuario.service';
 import { Tarifa } from 'src/app/feature/tarifa/shared/tarifa';
@@ -58,6 +59,10 @@ export class ReservaCrearComponent implements OnInit {
   }
 
   guardar() {
+    if(!this.form.valid){
+      markFormGroupTouched(this.form);
+      return;
+    }
     let reseva = new ReservaComando(
       this.form.value["fechaFormCtrl"],
       this.form.value["horaInicioFormCtrl"],

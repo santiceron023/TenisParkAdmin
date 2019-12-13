@@ -21,7 +21,7 @@ export class ReservaListarComponent implements OnInit {
   infoMessage: string;
 
   form: FormGroup;
-  displayedColumns = ["usuario", "cancha", "horaInicio", "horaFin"];
+  displayedColumns = ["usuario", "cancha", "horaInicio", "horaFin","costo"];
   dataSource: MatTableDataSource<Reserva>;
 
   constructor(
