@@ -1,5 +1,5 @@
 import { AppPage } from "./app.po";
-import { browser, logging, element, by } from "protractor";
+import { browser, element, by } from "protractor";
 
 describe("workspace-project App", () => {
   let page: AppPage;
@@ -9,10 +9,11 @@ describe("workspace-project App", () => {
   });
 
   //HOME
-  // it("wellcome Mesage check", () => {
-  //   page.navigateTo("/");
-  //   expect(page.getTitleText()).toEqual("Bienvenido Admin Tenis Park");
-  // });
+  it("wellcome Mesage check", () => {
+    page.navigateTo("/");
+    expect(page.getTitleText()).toEqual("Bienvenido Admin Tenis Park");
+    browser.sleep(2000);
+  });
 
   //CANCHA CREAR
   it("Cancha CREATE", () => {
@@ -52,7 +53,7 @@ describe("workspace-project App", () => {
     expect(element(by.xpath("//p[@id='dialogMensaje']")).getText()).toEqual("Creación éxitosa");
   });
 
-  //button[@id='reservaGuardarBtn'
+
   //RESERVAR
   it("cambiar tarifa", () => {
     page.navigateTo("/tarifa");

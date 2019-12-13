@@ -13,15 +13,15 @@ import { AlertDialogComponent } from '../../shared/alert/alert-dialog/alert-dial
 import {
   ERR_CONECTION,
   ERR_SERVER,
-  ERR_CLIENT
+  ERR_CLIENT,
+  CODE_NO_CONECTION,
+  CODE_ERR_SERVER,
+  CODE_ERR_CLIENT
 } from 'src/app/shared/var.const';
 
 @Injectable()
 export class ResponseCodeInterceptor implements HttpInterceptor {
-  private CODE_NO_CONECTION = 0;
-  private CODE_ERR_SERVER = 500;
-  private CODE_ERR_CLIENT = 400;
-
+ 
   constructor(public dialog: MatDialog) {}
 
   intercept(
@@ -30,17 +30,17 @@ export class ResponseCodeInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError((e: HttpErrorResponse) => {
-        if (e.status === this.CODE_NO_CONECTION) {
+        if (e.status === CODE_NO_CONECTION) {
           this.dialog.open(AlertDialogComponent, { data: ERR_CONECTION });
         }
 
-        if (e.status === this.CODE_ERR_SERVER) {
+        if (e.status === CODE_ERR_SERVER) {
           this.dialog.open(AlertDialogComponent, {
             data: ERR_SERVER + e.error.mensaje
           });
         }
 
-        if (e.status === this.CODE_ERR_CLIENT) {
+        if (e.status === CODE_ERR_CLIENT) {
           this.dialog.open(AlertDialogComponent, {
             data: ERR_CLIENT + e.error.mensaje
           });

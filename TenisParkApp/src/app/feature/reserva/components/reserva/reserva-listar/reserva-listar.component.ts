@@ -52,10 +52,8 @@ export class ReservaListarComponent implements OnInit {
     this.service.listar(filtro).subscribe(
       (data: Reserva[]) => {
         this.dataSource = new MatTableDataSource(data);
-
         this.infoMessage = data.length === 0 ? NO_DATA : "";
-      },
-      err => console.log(err)
+      }
     );
   }
 }
