@@ -36,13 +36,13 @@ export class ResponseCodeInterceptor implements HttpInterceptor {
 
         if (e.status === CODE_ERR_SERVER) {
           this.dialog.open(AlertDialogComponent, {
-            data: ERR_SERVER + e.error.mensaje
+            data: `${ERR_SERVER}${e.error.mensaje}`
           });
         }
 
         if (e.status === CODE_ERR_CLIENT) {
           this.dialog.open(AlertDialogComponent, {
-            data: ERR_CLIENT + e.error.mensaje
+            data: `${ERR_CLIENT}${e.error.mensaje}`
           });
         }
 

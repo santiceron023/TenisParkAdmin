@@ -6,8 +6,8 @@ export function formatDate(fecha: Date): string {
   let day = `${fecha.getDate()}`;
   let year = `${fecha.getFullYear()}`;
 
-  if (month.length < MIN_DATE_DIGIT) {month = '0' + month};
-  if (day.length < MIN_DATE_DIGIT) {day = '0' + day};
+  if (month.length < MIN_DATE_DIGIT) {month = `0${month}`}
+  if (day.length < MIN_DATE_DIGIT) {day = `0${day}`}
 
   return [year, month, day].join('-');
 }

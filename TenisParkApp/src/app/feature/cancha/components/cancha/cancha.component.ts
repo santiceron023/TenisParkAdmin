@@ -23,7 +23,7 @@ dataSource:MatTableDataSource<Cancha>
         this.setDatadable();
         this.service.recargar.next(false);
       }
-    })
+    });
   }
 
 
