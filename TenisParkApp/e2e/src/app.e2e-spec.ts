@@ -38,25 +38,26 @@ describe("workspace-project App", () => {
     element(by.formControlName("horaInicioFormCtrl")).sendKeys("10");
     element(by.formControlName("horaFinFormCtrl")).sendKeys("12");
     element(by.formControlName("fechaFormCtrl")).sendKeys("31/12/2019");
-    element(by.css("#reservaGuardarBtn")).click();
+    element(by.xpath("/html[1]/body[1]/app-root[1]/app-tarifa[1]/mat-table[1]/mat-row[1]/mat-cell[3]/button[1]")).click();
     //max t response
-    browser.sleep(1500);
-    expect(element(by.id("dialogText")).getText()).toEqual("Creación éxitosa");
-    browser.sleep(10000);
+    browser.sleep(150000);
+    expect(element(by.xpath("//p[@id='dialogMensaje']")).getText()).toEqual("Creación éxitosa");
+    browser.sleep(100000);
   });
 
+  //button[@id='reservaGuardarBtn'
   //RESERVAR
   it("cambiar tarifa", () => {
     page.navigateTo("/tarifa");
     element(
-      by.css("#tarifasTable > mat-row[1] > mat-cell[3] > button")
+      by.xpath("//mat-row[1]//mat-cell[3]//button[1]")
     ).click();
     element(by.formControlName("tarifaFormCtrl")).sendKeys("8000");
     element(by.id("tarifaActualizarBtn")).click();
     //max t response
-    browser.sleep(1500);
-    expect(element(by.id("dialogText")).getText()).toEqual("Creación éxitosa");
-    browser.sleep(10000);
+    browser.sleep(1500000);
+    expect(element(by.xpath("//p[@id='dialogMensaje']")).getText()).toEqual("Creación éxitosa");
+    browser.sleep(100000);
   });
 
   // afterEach(async () => {
