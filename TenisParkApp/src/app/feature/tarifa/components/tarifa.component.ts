@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { Cancha } from "../../cancha/shared/Cancha";
-import { Tarifa } from "../shared/tarifa";
-import { FormGroup } from "@angular/forms";
-import { TarifaService } from "../service/tarifa.service";
-import { MatTableDataSource } from "@angular/material";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Cancha } from '../../cancha/shared/Cancha';
+import { Tarifa } from '../shared/tarifa';
+import { FormGroup } from '@angular/forms';
+import { TarifaService } from '../service/tarifa.service';
+import { MatTableDataSource } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-tarifa",
-  templateUrl: "./tarifa.component.html",
-  styleUrls: ["./tarifa.component.css"]
+  selector: 'app-tarifa',
+  templateUrl: './tarifa.component.html',
+  styleUrls: ['./tarifa.component.css']
 })
 export class TarifaComponent implements OnInit {
   form: FormGroup;
@@ -17,7 +17,7 @@ export class TarifaComponent implements OnInit {
   infoMessage: string;
   tarifas: Tarifa[];
 
-  displayedColumns = ["dia", "tarifa", "acciones"];
+  displayedColumns = ['dia', 'tarifa', 'acciones'];
   dataSource: MatTableDataSource<Tarifa>;
 
   constructor(private tarifService: TarifaService, private router: Router) {}
@@ -42,6 +42,6 @@ export class TarifaComponent implements OnInit {
 
   modificar(tarifa: Tarifa) {
     this.tarifService.tarifaEditar = tarifa;
-    this.router.navigateByUrl("/tarifa/editar");
+    this.router.navigateByUrl('/tarifa/editar');
   }
 }

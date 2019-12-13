@@ -6,10 +6,10 @@ export function formatDate(fecha: Date): string {
   let day = `${fecha.getDate()}`;
   let year = `${fecha.getFullYear()}`;
 
-  if (month.length < MIN_DATE_DIGIT) {month = "0" + month};
-  if (day.length < MIN_DATE_DIGIT) {day = "0" + day};
+  if (month.length < MIN_DATE_DIGIT) {month = '0' + month};
+  if (day.length < MIN_DATE_DIGIT) {day = '0' + day};
 
-  return [year, month, day].join("-");
+  return [year, month, day].join('-');
 }
 
 export function formatDateTime(fecha: Date, hora: number): string {
@@ -17,7 +17,7 @@ export function formatDateTime(fecha: Date, hora: number): string {
   let auxHour = hora.toString();
   let hourString =
     auxHour.length < MIN_DATE_DIGIT ? `0${auxHour}:00:00.000Z` : `${auxHour}:00:00.000Z`;
-  return [dateString, hourString].join("T");
+  return [dateString, hourString].join('T');
 }
 
 

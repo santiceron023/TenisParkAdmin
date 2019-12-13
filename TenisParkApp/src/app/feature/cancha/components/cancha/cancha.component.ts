@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CanchaComponent implements OnInit {
   
-  displayedColumns = ["id", "administrador", "telefono"];
+  displayedColumns = ['id', 'administrador', 'telefono'];
 dataSource:MatTableDataSource<Cancha>
   constructor(private router:Router,
     private service:CanchaService) { }
@@ -34,6 +34,6 @@ dataSource:MatTableDataSource<Cancha>
   }
 
   agregar() {
-    this.router.navigateByUrl("/cancha/crear");
+    this.router.navigateByUrl('/cancha/crear');
   }
 }

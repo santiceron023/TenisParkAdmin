@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Cancha } from "src/app/feature/cancha/shared/Cancha";
-import { Usuario } from "src/app/feature/usuario/shared/Usuario";
-import { ReservaService } from "../../../service/reserva.service";
-import { ReservaComando } from "../../../shared/reservaComando";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Cancha } from 'src/app/feature/cancha/shared/Cancha';
+import { Usuario } from 'src/app/feature/usuario/shared/Usuario';
+import { ReservaService } from '../../../service/reserva.service';
+import { ReservaComando } from '../../../shared/reservaComando';
 import { markFormGroupTouched } from 'src/app/shared/utils';
 import { CanchaService } from 'src/app/feature/cancha/service/cancha.service';
 import { UsuarioService } from 'src/app/feature/usuario/service/usuario.service';
@@ -14,9 +14,9 @@ import { AlertDialogComponent } from 'src/app/shared/alert/alert-dialog/alert-di
 import { MSG_CREATED } from 'src/app/shared/var.const';
 
 @Component({
-  selector: "app-reserva-crear",
-  templateUrl: "./reserva-crear.component.html",
-  styleUrls: ["./reserva-crear.component.css"]
+  selector: 'app-reserva-crear',
+  templateUrl: './reserva-crear.component.html',
+  styleUrls: ['./reserva-crear.component.css']
 })
 export class ReservaCrearComponent implements OnInit {
   form: FormGroup;
@@ -35,12 +35,12 @@ export class ReservaCrearComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      canchaFormCtrl: new FormControl("",Validators.required),
-      usuarioFormCtrl: new FormControl("",Validators.required),
-      cantidadFormCtrl: new FormControl("",Validators.required),
-      horaInicioFormCtrl: new FormControl("",Validators.required),
-      horaFinFormCtrl: new FormControl("",Validators.required),
-      fechaFormCtrl: new FormControl("",Validators.required)
+      canchaFormCtrl: new FormControl('',Validators.required),
+      usuarioFormCtrl: new FormControl('',Validators.required),
+      cantidadFormCtrl: new FormControl('',Validators.required),
+      horaInicioFormCtrl: new FormControl('',Validators.required),
+      horaFinFormCtrl: new FormControl('',Validators.required),
+      fechaFormCtrl: new FormControl('',Validators.required)
     });
     
     this.canchaService.listar().subscribe(
@@ -64,12 +64,12 @@ export class ReservaCrearComponent implements OnInit {
       return;
     }
     let reseva = new ReservaComando(
-      this.form.value["fechaFormCtrl"],
-      this.form.value["horaInicioFormCtrl"],
-      this.form.value["horaFinFormCtrl"],
-      this.form.value["usuarioFormCtrl"],
-      this.form.value["canchaFormCtrl"],
-      this.form.value["cantidadFormCtrl"]
+      this.form.value['fechaFormCtrl'],
+      this.form.value['horaInicioFormCtrl'],
+      this.form.value['horaFinFormCtrl'],
+      this.form.value['usuarioFormCtrl'],
+      this.form.value['canchaFormCtrl'],
+      this.form.value['cantidadFormCtrl']
     );
     this.reservaService.crear(reseva).subscribe(
       data =>

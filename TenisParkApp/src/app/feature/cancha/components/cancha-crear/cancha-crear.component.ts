@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CanchaService } from '../../service/cancha.service';
 import { Cancha } from '../../shared/Cancha';
 import { markFormGroupTouched } from 'src/app/shared/utils';
@@ -9,9 +9,9 @@ import { AlertDialogComponent } from 'src/app/shared/alert/alert-dialog/alert-di
 import { MSG_CREATED } from 'src/app/shared/var.const';
 
 @Component({
-  selector: "app-cancha-crear",
-  templateUrl: "./cancha-crear.component.html",
-  styleUrls: ["./cancha-crear.component.css"]
+  selector: 'app-cancha-crear',
+  templateUrl: './cancha-crear.component.html',
+  styleUrls: ['./cancha-crear.component.css']
 })
 export class CanchaCrearComponent implements OnInit {
   form: FormGroup;
@@ -21,9 +21,9 @@ export class CanchaCrearComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      numeroFormCtrl: new FormControl("", Validators.required),
-      administradorFormCtrl: new FormControl("", Validators.required),
-      telefonoFormCtrl: new FormControl("", Validators.required)
+      numeroFormCtrl: new FormControl('', Validators.required),
+      administradorFormCtrl: new FormControl('', Validators.required),
+      telefonoFormCtrl: new FormControl('', Validators.required)
     });
   }
 

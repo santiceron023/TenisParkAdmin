@@ -1,16 +1,16 @@
-import { Component, OnInit } from "@angular/core";
-import { FormControl, Validators, FormGroup } from "@angular/forms";
-import { Router, ActivatedRoute, Params } from "@angular/router";
-import { TarifaService } from "../../service/tarifa.service";
-import { Tarifa } from "../../shared/tarifa";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { TarifaService } from '../../service/tarifa.service';
+import { Tarifa } from '../../shared/tarifa';
 import { MatDialog } from '@angular/material';
 import { AlertDialogComponent } from 'src/app/shared/alert/alert-dialog/alert-dialog.component';
 import { MSG_CREATED } from 'src/app/shared/var.const';
 
 @Component({
-  selector: "app-tarifa-editar",
-  templateUrl: "./tarifa-editar.component.html",
-  styleUrls: ["./tarifa-editar.component.css"]
+  selector: 'app-tarifa-editar',
+  templateUrl: './tarifa-editar.component.html',
+  styleUrls: ['./tarifa-editar.component.css']
 })
 export class TarifaEditarComponent implements OnInit {
   form:FormGroup;
@@ -35,7 +35,7 @@ export class TarifaEditarComponent implements OnInit {
       this.matDialog.open(AlertDialogComponent,{data: MSG_CREATED});
       this.tarifaService.tarifaEditar = null;
       this.tarifaService.recargar.next(true);
-      this.router.navigateByUrl("/tarifa");
+      this.router.navigateByUrl('/tarifa');
     });
   }
 }
