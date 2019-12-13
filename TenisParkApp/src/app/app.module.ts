@@ -7,7 +7,7 @@ import { ProductoModule } from "./feature/producto/producto.module";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { CoreModule } from "./core/core.module";
 import { CookieService } from "ngx-cookie-service";
-import { NoopAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ReservaModule } from "./feature/reserva/reserva.module";
 import { CanchaModule } from "./feature/cancha/cancha.module";
 import { UsuarioModule } from "./feature/usuario/usuario.module";
@@ -24,7 +24,7 @@ import { TarifaModule } from "./feature/tarifa/tarifa.module";
     TarifaModule,
     UsuarioModule,
     CoreModule,
-    NoopAnimationsModule
+    BrowserAnimationsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

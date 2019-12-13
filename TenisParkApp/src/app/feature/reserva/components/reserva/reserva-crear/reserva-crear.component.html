@@ -22,6 +22,18 @@
   <mat-form-field>
     <input
       matInput
+      [matDatepicker]="picker"
+      [min]="minFecha"
+      placeholder="Escoge una fecha"
+      formControlName="fechaFormCtrl"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
       placeholder="Hora inicio"
       formControlName="horaInicioFormCtrl"
     />
@@ -33,18 +45,6 @@
 
   <mat-form-field>
     <input matInput placeholder="Número de usuarios" formControlName="cantidadFormCtrl" />
-  </mat-form-field>
-
-  <mat-form-field>
-    <input
-      matInput
-      [matDatepicker]="picker"
-      [min]="minFecha"
-      placeholder="Escoge una fecha"
-      formControlName="fechaFormCtrl"
-    />
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
   <button type="button" id="reservaGuardarBtn" color="primary" mat-raised-button (click)="guardar()">
