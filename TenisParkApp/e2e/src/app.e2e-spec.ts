@@ -8,12 +8,14 @@ describe("workspace-project App", () => {
     page = new AppPage();
   });
 
+
   //HOME
   it("wellcome Mesage check", () => {
     page.navigateTo("/");
     expect(page.getTitleText()).toEqual("Bienvenido Admin Tenis Park");
     browser.sleep(2000);
   });
+
 
   //CANCHA CREAR
   it("Cancha CREATE", () => {
@@ -25,22 +27,36 @@ describe("workspace-project App", () => {
     element(by.formControlName("telefonoFormCtrl")).sendKeys("571 2589");
     browser.sleep(2500);
     element(by.id("canchaGuardarBtn")).click();
-  // max t response
-  expect(element(by.xpath("//p[@id='dialogMensaje']")).getText()).toEqual("Creación éxitosa");
+    // max t response
+    expect(element(by.xpath("//p[@id='dialogMensaje']")).getText()).toEqual(
+      "Creación éxitosa"
+    );
     browser.sleep(5000);
   });
 
+
   //RESERVAR
   it("Reserva crear", () => {
+    page.navegarVerReserva();
+    browser.sleep(3000);
+
     page.navigateTo("/reserva/crear");
     element(by.formControlName("canchaFormCtrl")).sendKeys("1");
 
     element(by.formControlName("usuarioFormCtrl")).click();
-    element(by.xpath("/html[1]/body[1]/div[2]/div[2]/div[1]/div[1]/div[1]/mat-option[1]/span[1]")).click();
+    element(
+      by.xpath(
+        "/html[1]/body[1]/div[2]/div[2]/div[1]/div[1]/div[1]/mat-option[1]/span[1]"
+      )
+    ).click();
 
-    element(by.xpath("//*[@class='mat-datepicker-toggle-default-icon ng-star-inserted']")).click();
-    element(by.xpath("//div[contains(text(),'27')]")).click();
-
+    element(
+      by.xpath(
+        "//*[@class='mat-datepicker-toggle-default-icon ng-star-inserted']"
+      )
+    ).click();
+    let number = new Date().getDate();
+    element(by.xpath(`//div[contains(text(),'${number}')]`)).click();
 
     element(by.formControlName("cantidadFormCtrl")).sendKeys("4");
     element(by.formControlName("horaFinFormCtrl")).sendKeys("12");
@@ -50,22 +66,27 @@ describe("workspace-project App", () => {
     element(by.xpath("//button[@id='reservaGuardarBtn']")).click();
     browser.sleep(5000);
     //max t response
-    expect(element(by.xpath("//p[@id='dialogMensaje']")).getText()).toEqual("Creación éxitosa");
+    expect(element(by.xpath("//p[@id='dialogMensaje']")).getText()).toEqual(
+      "Creación éxitosa"
+    );
+
+    browser.sleep(1000);
+    page.navegarVerReserva();
+    browser.sleep(3000);
   });
 
-
-  //RESERVAR
-  it("cambiar tarifa", () => {
+  //TARIFA
+  xit("cambiar tarifa", () => {
     page.navigateTo("/tarifa");
-    element(
-      by.xpath("//mat-row[1]//mat-cell[3]//button[1]")
-    ).click();
+    element(by.xpath("//mat-row[1]//mat-cell[3]//button[1]")).click();
     element(by.formControlName("tarifaFormCtrl")).sendKeys("8000");
     browser.sleep(2000);
     element(by.id("tarifaActualizarBtn")).click();
     //max t response
     browser.sleep(5000);
-    expect(element(by.xpath("//p[@id='dialogMensaje']")).getText()).toEqual("Creación éxitosa");
+    expect(element(by.xpath("//p[@id='dialogMensaje']")).getText()).toEqual(
+      "Creación éxitosa"
+    );
   });
 
   // afterEach(async () => {

@@ -20,17 +20,15 @@ public class ReservaTestDataBuilder {
 
 	public Reserva build() {
 		return new Reserva(
-				//TODO ELIMINAR
-				//				id, 
 				TARIFA_ID, USUARIO_ID,
 				CANCHA_ID, FECHA_INICIO, FECHA_FIN, NUMERO_USUARIOS);
 	}
-
-
-
-
-
-
+	
+	public Reserva buildBad() {
+		return new Reserva(
+				TARIFA_ID, null,
+				CANCHA_ID, FECHA_INICIO, FECHA_FIN, NUMERO_USUARIOS);
+	}
 
 
 }
