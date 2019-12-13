@@ -30,7 +30,7 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler{
 	}
 	
 	
-	//para todas las otras excepciones
+	//para dominio excep
 		@ExceptionHandler(ExcepcionDominio.class)
 		public final ResponseEntity<Object> manejarExcepcionDominio(Exception ex, WebRequest request){
 

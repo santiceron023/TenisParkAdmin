@@ -70,6 +70,26 @@ public class ReservaControladorTest {
 		.andExpect(status().isCreated());
 	}
 	
+	@Test
+	@Transactional
+	@Sql(scripts = "/preCondicionesReserva.sql",
+	executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+	public void crearDuplicada() throws Exception {
+		//arrange
+		ReservaComando comandoReserva = new ReservaComandoTestDataBuilder().build();
+		//SQL FILE
+		
+		//Act
+		mockMvc.perform(post("/reserva")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(comandoReserva))
+				.accept(MediaType.APPLICATION_JSON))
+		.andDo(print())
+		
+		//Assert
+		.andExpect(status().is4xxClientError());
+	}
+	
 	
 	@Test
 	@Transactional

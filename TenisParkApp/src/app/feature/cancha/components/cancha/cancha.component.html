@@ -1,9 +1,10 @@
 <mat-toolbar>
-    <p>Cancha</p>
+  <p>Cancha</p>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
 
+<br />
 <button mat-flat-button color="accent" (click)="agregar()">Agregar</button>
 
 <mat-table [dataSource]="dataSource">
@@ -16,13 +17,12 @@
     <mat-header-cell *matHeaderCellDef> Administrador </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{ element.administrador }}</mat-cell>
   </ng-container>
-  
-  <ng-container matColumnDef="telefono">
-      <mat-header-cell *matHeaderCellDef> Teléfono </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.telefono }}</mat-cell>
-    </ng-container>
-    
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 
+  <ng-container matColumnDef="telefono">
+    <mat-header-cell *matHeaderCellDef> Teléfono </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.telefono }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 </mat-table>
