@@ -77,7 +77,11 @@ public class ReservaControladorTest {
 	public void crearDuplicada() throws Exception {
 		//arrange
 		ReservaComando comandoReserva = new ReservaComandoTestDataBuilder().build();
-		//SQL FILE
+		mockMvc.perform(post("/reserva")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(comandoReserva))
+				.accept(MediaType.APPLICATION_JSON))
+		.andDo(print());
 		
 		//Act
 		mockMvc.perform(post("/reserva")
