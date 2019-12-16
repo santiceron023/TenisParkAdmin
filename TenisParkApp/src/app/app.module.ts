@@ -7,22 +7,17 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CoreModule } from './core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReservaModule } from './feature/reserva/reserva.module';
-import { CanchaModule } from './feature/cancha/cancha.module';
-import { UsuarioModule } from './feature/usuario/usuario.module';
-import { TarifaModule } from './feature/tarifa/tarifa.module';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReservaModule,
-    CanchaModule,
-    TarifaModule,
-    UsuarioModule,
     CoreModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

@@ -17,4 +17,5 @@ public interface ReservaRepositorioJpa extends JpaRepository<ReservaEntity, Inte
 	List<ReservaEntity> obtenerFiltro(@Param("fechaIni") LocalDateTime inicio,
 			@Param("fechaFin") LocalDateTime fin,
 			@Param("cancha")Integer numeroCancha);
+	
 }

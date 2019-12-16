@@ -86,15 +86,15 @@ pipeline {
   }
  }
 
- stage('Test_carga') {
-    steps {
-        echo '------------>test carga<------------'                     
-        dir("${PROJETC_PATH_JMETER}"){                         
-            sh './jmeter  -n -t ${WORKSPACE}/testsApi.jmx -l ${WORKSPACE}/performacetest.jtl'   
-            performanceReport parsers: [[$class: 'JMeterParser', glob: "${WORKSPACE}/performacetest.jtl"]], sourceDataFiles: "${WORKSPACE}/performacetest.jtl", errorFailedThreshold: 40, errorUnstableThreshold: 40, ignoreFailedBuilds: false, ignoreUnstableBuilds: false, relativeFailedThresholdNegative: 0, relativeFailedThresholdPositive: 0, relativeUnstableThresholdNegative: 0, relativeUnstableThresholdPositive: 0
-        }
-    }
-}
+//  stage('Test_carga') {
+//     steps {
+//         echo '------------>test carga<------------'                     
+//         dir("${PROJETC_PATH_JMETER}"){                         
+//             sh './jmeter  -n -t ${WORKSPACE}/testsApi.jmx -l ${WORKSPACE}/performacetest.jtl'   
+//             performanceReport parsers: [[$class: 'JMeterParser', glob: "${WORKSPACE}/performacetest.jtl"]], sourceDataFiles: "${WORKSPACE}/performacetest.jtl", errorFailedThreshold: 40, errorUnstableThreshold: 40, ignoreFailedBuilds: false, ignoreUnstableBuilds: false, relativeFailedThresholdNegative: 0, relativeFailedThresholdPositive: 0, relativeUnstableThresholdNegative: 0, relativeUnstableThresholdPositive: 0
+//         }
+//     }
+// }
 
 }
 

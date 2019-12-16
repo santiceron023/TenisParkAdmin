@@ -12,8 +12,8 @@ import com.ceiba.tenispark.dominio.servicio.reserva.ReservaCrearServicio;
 public class ReservaBean {
 
 	@Bean
-	public ReservaCrearServicio reservaCrearBean(ReservaRepositorio repositorioReserva) {
-		return new ReservaCrearServicio(repositorioReserva);
+	public ReservaCrearServicio reservaCrearBean(ReservaRepositorio repositorioReserva,ReservaConsultarServicio consultarServicio) {
+		return new ReservaCrearServicio(repositorioReserva,consultarServicio);
 	}
 	
 	@Bean

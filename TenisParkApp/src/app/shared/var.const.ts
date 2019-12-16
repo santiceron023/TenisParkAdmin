@@ -5,6 +5,6 @@ export const MSG_CREATED = 'Creación éxitosa';
 export const ERR_SERVER = 'Error Servidor: ';
 export const ERR_CLIENT = 'Error cliente: ';
 
-export const CODE_NO_CONECTION = 0;
+export const CODE_NO_CONECTION = 504;
 export const CODE_ERR_SERVER = 500;
 export const CODE_ERR_CLIENT = 400;

@@ -2,6 +2,8 @@ package com.ceiba.tenispark.dominio.modelo.dto;
 
 import java.time.LocalDate;
 
+import com.ceiba.tenispark.dominio.modelo.Reserva;
+
 public class FiltroReservaDto {
 	
 	private LocalDate dia;
@@ -10,6 +12,10 @@ public class FiltroReservaDto {
 	public FiltroReservaDto(LocalDate dia, Integer cancha) {
 		this.dia = dia;
 		this.cancha = cancha;
+	}
+	public FiltroReservaDto(Reserva reserva) {
+		this.dia = reserva.getFechaInicio().toLocalDate();
+		this.cancha = reserva.getCancha().getId();
 	}
 	public FiltroReservaDto() {
 	}

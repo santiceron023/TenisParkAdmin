@@ -11,7 +11,7 @@ public class ReservaTestDataBuilder {
 	private static final LocalDateTime FECHA_INICIO = 
 			LocalDateTime.of(2019, Month.APRIL, 1, 12, 11, 10);
 	private static final LocalDateTime FECHA_FIN = 
-			LocalDateTime.of(2019, Month.APRIL, 1, 14, 13, 12);
+			LocalDateTime.of(2019, Month.APRIL, 1, 14, 10, 12);
 	private static final Integer TARIFA_ID = 1;
 	private static final Integer USUARIO_ID = 1;
 	private static final Integer CANCHA_ID = 1;
