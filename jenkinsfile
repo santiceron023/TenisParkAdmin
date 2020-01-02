@@ -70,7 +70,6 @@ pipeline {
     echo "------------>Tests<------------"
     dir("AdminTenisPark") {
       sh 'gradle test' // --debug'
-      finalizedBy jacocoTestReport
     }
    }
   }
