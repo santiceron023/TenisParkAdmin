@@ -56,10 +56,20 @@ dependencies {
 	compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.8'
 }
 
+
+jacocoTestReport{
+	reports {
+		xml.enabled true
+	}
+}
+
 test {
 	useJUnitPlatform()
 	dependsOn 'cleanTest'
+	finalizedBy jacocoTestReport
 }
+
+
 
 sonarqube {
 	properties {
