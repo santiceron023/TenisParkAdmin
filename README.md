@@ -23,7 +23,7 @@ Base de datos de usuarios (proveida).
 *   Framework:  Angular v 8.1.3
                 Spring 2.2.1.RELEASE
 *   Documentación:  Swagger v 2.7
-*   Tests:  Junit + Mockito
+*   Tests:  Junit + Mockito + Protrector
 *   Análisis códidigo Estático: Sonar Qube +  Jacoco
 *   Test Carga: Jmeter
 
